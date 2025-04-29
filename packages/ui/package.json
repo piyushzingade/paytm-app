@@ -1,0 +1,28 @@
+{
+  "name": "@repo/ui",
+  "version": "0.0.0",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./styles.css": "./dist/index.css",
+    "./*": "./src/*.tsx"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^19"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "^19.1.0",
+    "eslint": "^9.25.0",
+    "typescript": "5.8.2"
+  },
+  "dependencies": {
+    "@turbo/gen": "^2.5.1"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports" : {
+    "./client"  : "./index.ts"
+  },
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "6.6.0",
+    "@repo/typescript-config": "workspace:*",
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^22.15.3",
+    "bcrypt": "^5.1.1"
+  },
+  "devDependencies": {
+    "prisma": "6.6.0"
+  }
+}
