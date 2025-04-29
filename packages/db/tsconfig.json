@@ -1,5 +1,16 @@
 {
   "extends": "@repo/typescript-config/react-library.json",
+  "compilerOptions": {
+    "baseUrl": ".", // Required for 'paths' to work
+    "paths": {
+      "@repo/db": [
+        "packages/db/src/index.ts"
+      ],
+      "@repo/db/generated/prisma": [
+        "packages/db/generated/prisma/index.d.ts"
+      ]
+    }
+  }
   // "compilerOptions": {
   // "outDir": "dist"
   // },

@@ -29,10 +29,10 @@ export type Merchant = $Result.DefaultSelection<Prisma.$MerchantPayload>
  */
 export type OnRampTransaction = $Result.DefaultSelection<Prisma.$OnRampTransactionPayload>
 /**
- * Model p2pTransfer
+ * Model P2pTransfer
  * 
  */
-export type p2pTransfer = $Result.DefaultSelection<Prisma.$p2pTransferPayload>
+export type P2pTransfer = $Result.DefaultSelection<Prisma.$P2pTransferPayload>
 /**
  * Model Balance
  * 
@@ -225,14 +225,14 @@ export class PrismaClient<
   get onRampTransaction(): Prisma.OnRampTransactionDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.p2pTransfer`: Exposes CRUD operations for the **p2pTransfer** model.
+   * `prisma.p2pTransfer`: Exposes CRUD operations for the **P2pTransfer** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more P2pTransfers
     * const p2pTransfers = await prisma.p2pTransfer.findMany()
     * ```
     */
-  get p2pTransfer(): Prisma.p2pTransferDelegate<ExtArgs, ClientOptions>;
+  get p2pTransfer(): Prisma.P2pTransferDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.balance`: Exposes CRUD operations for the **Balance** model.
@@ -686,7 +686,7 @@ export namespace Prisma {
     User: 'User',
     Merchant: 'Merchant',
     OnRampTransaction: 'OnRampTransaction',
-    p2pTransfer: 'p2pTransfer',
+    P2pTransfer: 'P2pTransfer',
     Balance: 'Balance'
   };
 
@@ -932,76 +932,76 @@ export namespace Prisma {
           }
         }
       }
-      p2pTransfer: {
-        payload: Prisma.$p2pTransferPayload<ExtArgs>
-        fields: Prisma.p2pTransferFieldRefs
+      P2pTransfer: {
+        payload: Prisma.$P2pTransferPayload<ExtArgs>
+        fields: Prisma.P2pTransferFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.p2pTransferFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload> | null
+            args: Prisma.P2pTransferFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.p2pTransferFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           findFirst: {
-            args: Prisma.p2pTransferFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload> | null
+            args: Prisma.P2pTransferFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.p2pTransferFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           findMany: {
-            args: Prisma.p2pTransferFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+            args: Prisma.P2pTransferFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>[]
           }
           create: {
-            args: Prisma.p2pTransferCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           createMany: {
-            args: Prisma.p2pTransferCreateManyArgs<ExtArgs>
+            args: Prisma.P2pTransferCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.p2pTransferCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+            args: Prisma.P2pTransferCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>[]
           }
           delete: {
-            args: Prisma.p2pTransferDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           update: {
-            args: Prisma.p2pTransferUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           deleteMany: {
-            args: Prisma.p2pTransferDeleteManyArgs<ExtArgs>
+            args: Prisma.P2pTransferDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.p2pTransferUpdateManyArgs<ExtArgs>
+            args: Prisma.P2pTransferUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.p2pTransferUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>[]
+            args: Prisma.P2pTransferUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>[]
           }
           upsert: {
-            args: Prisma.p2pTransferUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$p2pTransferPayload>
+            args: Prisma.P2pTransferUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$P2pTransferPayload>
           }
           aggregate: {
             args: Prisma.P2pTransferAggregateArgs<ExtArgs>
             result: $Utils.Optional<AggregateP2pTransfer>
           }
           groupBy: {
-            args: Prisma.p2pTransferGroupByArgs<ExtArgs>
+            args: Prisma.P2pTransferGroupByArgs<ExtArgs>
             result: $Utils.Optional<P2pTransferGroupByOutputType>[]
           }
           count: {
-            args: Prisma.p2pTransferCountArgs<ExtArgs>
+            args: Prisma.P2pTransferCountArgs<ExtArgs>
             result: $Utils.Optional<P2pTransferCountAggregateOutputType> | number
           }
         }
@@ -1167,7 +1167,7 @@ export namespace Prisma {
     user?: UserOmit
     merchant?: MerchantOmit
     onRampTransaction?: OnRampTransactionOmit
-    p2pTransfer?: p2pTransferOmit
+    p2pTransfer?: P2pTransferOmit
     balance?: BalanceOmit
   }
 
@@ -1305,14 +1305,14 @@ export namespace Prisma {
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountSentTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
   export type UserCountOutputTypeCountReceivedTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
   }
 
 
@@ -1565,8 +1565,8 @@ export namespace Prisma {
     objects: {
       OnRampTransaction: Prisma.$OnRampTransactionPayload<ExtArgs>[]
       Balance: Prisma.$BalancePayload<ExtArgs>[]
-      sentTransfers: Prisma.$p2pTransferPayload<ExtArgs>[]
-      receivedTransfers: Prisma.$p2pTransferPayload<ExtArgs>[]
+      sentTransfers: Prisma.$P2pTransferPayload<ExtArgs>[]
+      receivedTransfers: Prisma.$P2pTransferPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1970,8 +1970,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     OnRampTransaction<T extends User$OnRampTransactionArgs<ExtArgs> = {}>(args?: Subset<T, User$OnRampTransactionArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OnRampTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Balance<T extends User$BalanceArgs<ExtArgs> = {}>(args?: Subset<T, User$BalanceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BalancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    sentTransfers<T extends User$sentTransfersArgs<ExtArgs> = {}>(args?: Subset<T, User$sentTransfersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    receivedTransfers<T extends User$receivedTransfersArgs<ExtArgs> = {}>(args?: Subset<T, User$receivedTransfersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sentTransfers<T extends User$sentTransfersArgs<ExtArgs> = {}>(args?: Subset<T, User$sentTransfersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    receivedTransfers<T extends User$receivedTransfersArgs<ExtArgs> = {}>(args?: Subset<T, User$receivedTransfersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2446,20 +2446,20 @@ export namespace Prisma {
    */
   export type User$sentTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
-    where?: p2pTransferWhereInput
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
-    cursor?: p2pTransferWhereUniqueInput
+    include?: P2pTransferInclude<ExtArgs> | null
+    where?: P2pTransferWhereInput
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
+    cursor?: P2pTransferWhereUniqueInput
     take?: number
     skip?: number
     distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
@@ -2470,20 +2470,20 @@ export namespace Prisma {
    */
   export type User$receivedTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
-    where?: p2pTransferWhereInput
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
-    cursor?: p2pTransferWhereUniqueInput
+    include?: P2pTransferInclude<ExtArgs> | null
+    where?: P2pTransferWhereInput
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
+    cursor?: P2pTransferWhereUniqueInput
     take?: number
     skip?: number
     distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
@@ -4651,7 +4651,7 @@ export namespace Prisma {
 
 
   /**
-   * Model p2pTransfer
+   * Model P2pTransfer
    */
 
   export type AggregateP2pTransfer = {
@@ -4743,37 +4743,37 @@ export namespace Prisma {
 
   export type P2pTransferAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which p2pTransfer to aggregate.
+     * Filter which P2pTransfer to aggregate.
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of p2pTransfers to fetch.
+     * Determine the order of P2pTransfers to fetch.
      */
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: p2pTransferWhereUniqueInput
+    cursor?: P2pTransferWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` p2pTransfers from the position of the cursor.
+     * Take `±n` P2pTransfers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` p2pTransfers.
+     * Skip the first `n` P2pTransfers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned p2pTransfers
+     * Count returned P2pTransfers
     **/
     _count?: true | P2pTransferCountAggregateInputType
     /**
@@ -4813,11 +4813,11 @@ export namespace Prisma {
 
 
 
-  export type p2pTransferGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: p2pTransferWhereInput
-    orderBy?: p2pTransferOrderByWithAggregationInput | p2pTransferOrderByWithAggregationInput[]
+  export type P2pTransferGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: P2pTransferWhereInput
+    orderBy?: P2pTransferOrderByWithAggregationInput | P2pTransferOrderByWithAggregationInput[]
     by: P2pTransferScalarFieldEnum[] | P2pTransferScalarFieldEnum
-    having?: p2pTransferScalarWhereWithAggregatesInput
+    having?: P2pTransferScalarWhereWithAggregatesInput
     take?: number
     skip?: number
     _count?: P2pTransferCountAggregateInputType | true
@@ -4840,7 +4840,7 @@ export namespace Prisma {
     _max: P2pTransferMaxAggregateOutputType | null
   }
 
-  type GetP2pTransferGroupByPayload<T extends p2pTransferGroupByArgs> = Prisma.PrismaPromise<
+  type GetP2pTransferGroupByPayload<T extends P2pTransferGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<P2pTransferGroupByOutputType, T['by']> &
         {
@@ -4854,7 +4854,7 @@ export namespace Prisma {
     >
 
 
-  export type p2pTransferSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type P2pTransferSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
     timestamp?: boolean
@@ -4864,7 +4864,7 @@ export namespace Prisma {
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
-  export type p2pTransferSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type P2pTransferSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
     timestamp?: boolean
@@ -4874,7 +4874,7 @@ export namespace Prisma {
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
-  export type p2pTransferSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type P2pTransferSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
     timestamp?: boolean
@@ -4884,7 +4884,7 @@ export namespace Prisma {
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
-  export type p2pTransferSelectScalar = {
+  export type P2pTransferSelectScalar = {
     id?: boolean
     amount?: boolean
     timestamp?: boolean
@@ -4892,22 +4892,22 @@ export namespace Prisma {
     toUserId?: boolean
   }
 
-  export type p2pTransferOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "timestamp" | "fromUserId" | "toUserId", ExtArgs["result"]["p2pTransfer"]>
-  export type p2pTransferInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "timestamp" | "fromUserId" | "toUserId", ExtArgs["result"]["p2pTransfer"]>
+  export type P2pTransferInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type p2pTransferIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }
-  export type p2pTransferIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
     toUser?: boolean | UserDefaultArgs<ExtArgs>
   }
 
-  export type $p2pTransferPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "p2pTransfer"
+  export type $P2pTransferPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "P2pTransfer"
     objects: {
       fromUser: Prisma.$UserPayload<ExtArgs>
       toUser: Prisma.$UserPayload<ExtArgs>
@@ -4922,18 +4922,18 @@ export namespace Prisma {
     composites: {}
   }
 
-  type p2pTransferGetPayload<S extends boolean | null | undefined | p2pTransferDefaultArgs> = $Result.GetResult<Prisma.$p2pTransferPayload, S>
+  type P2pTransferGetPayload<S extends boolean | null | undefined | P2pTransferDefaultArgs> = $Result.GetResult<Prisma.$P2pTransferPayload, S>
 
-  type p2pTransferCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<p2pTransferFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+  type P2pTransferCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<P2pTransferFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
       select?: P2pTransferCountAggregateInputType | true
     }
 
-  export interface p2pTransferDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['p2pTransfer'], meta: { name: 'p2pTransfer' } }
+  export interface P2pTransferDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['P2pTransfer'], meta: { name: 'P2pTransfer' } }
     /**
      * Find zero or one P2pTransfer that matches the filter.
-     * @param {p2pTransferFindUniqueArgs} args - Arguments to find a P2pTransfer
+     * @param {P2pTransferFindUniqueArgs} args - Arguments to find a P2pTransfer
      * @example
      * // Get one P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.findUnique({
@@ -4942,12 +4942,12 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUnique<T extends p2pTransferFindUniqueArgs>(args: SelectSubset<T, p2pTransferFindUniqueArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends P2pTransferFindUniqueArgs>(args: SelectSubset<T, P2pTransferFindUniqueArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find one P2pTransfer that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {p2pTransferFindUniqueOrThrowArgs} args - Arguments to find a P2pTransfer
+     * @param {P2pTransferFindUniqueOrThrowArgs} args - Arguments to find a P2pTransfer
      * @example
      * // Get one P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.findUniqueOrThrow({
@@ -4956,13 +4956,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUniqueOrThrow<T extends p2pTransferFindUniqueOrThrowArgs>(args: SelectSubset<T, p2pTransferFindUniqueOrThrowArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends P2pTransferFindUniqueOrThrowArgs>(args: SelectSubset<T, P2pTransferFindUniqueOrThrowArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find the first P2pTransfer that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferFindFirstArgs} args - Arguments to find a P2pTransfer
+     * @param {P2pTransferFindFirstArgs} args - Arguments to find a P2pTransfer
      * @example
      * // Get one P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.findFirst({
@@ -4971,14 +4971,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirst<T extends p2pTransferFindFirstArgs>(args?: SelectSubset<T, p2pTransferFindFirstArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends P2pTransferFindFirstArgs>(args?: SelectSubset<T, P2pTransferFindFirstArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find the first P2pTransfer that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferFindFirstOrThrowArgs} args - Arguments to find a P2pTransfer
+     * @param {P2pTransferFindFirstOrThrowArgs} args - Arguments to find a P2pTransfer
      * @example
      * // Get one P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.findFirstOrThrow({
@@ -4987,13 +4987,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirstOrThrow<T extends p2pTransferFindFirstOrThrowArgs>(args?: SelectSubset<T, p2pTransferFindFirstOrThrowArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends P2pTransferFindFirstOrThrowArgs>(args?: SelectSubset<T, P2pTransferFindFirstOrThrowArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more P2pTransfers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {P2pTransferFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all P2pTransfers
      * const p2pTransfers = await prisma.p2pTransfer.findMany()
@@ -5005,11 +5005,11 @@ export namespace Prisma {
      * const p2pTransferWithIdOnly = await prisma.p2pTransfer.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends p2pTransferFindManyArgs>(args?: SelectSubset<T, p2pTransferFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends P2pTransferFindManyArgs>(args?: SelectSubset<T, P2pTransferFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
      * Create a P2pTransfer.
-     * @param {p2pTransferCreateArgs} args - Arguments to create a P2pTransfer.
+     * @param {P2pTransferCreateArgs} args - Arguments to create a P2pTransfer.
      * @example
      * // Create one P2pTransfer
      * const P2pTransfer = await prisma.p2pTransfer.create({
@@ -5019,11 +5019,11 @@ export namespace Prisma {
      * })
      * 
      */
-    create<T extends p2pTransferCreateArgs>(args: SelectSubset<T, p2pTransferCreateArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends P2pTransferCreateArgs>(args: SelectSubset<T, P2pTransferCreateArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many P2pTransfers.
-     * @param {p2pTransferCreateManyArgs} args - Arguments to create many P2pTransfers.
+     * @param {P2pTransferCreateManyArgs} args - Arguments to create many P2pTransfers.
      * @example
      * // Create many P2pTransfers
      * const p2pTransfer = await prisma.p2pTransfer.createMany({
@@ -5033,11 +5033,11 @@ export namespace Prisma {
      * })
      *     
      */
-    createMany<T extends p2pTransferCreateManyArgs>(args?: SelectSubset<T, p2pTransferCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends P2pTransferCreateManyArgs>(args?: SelectSubset<T, P2pTransferCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many P2pTransfers and returns the data saved in the database.
-     * @param {p2pTransferCreateManyAndReturnArgs} args - Arguments to create many P2pTransfers.
+     * @param {P2pTransferCreateManyAndReturnArgs} args - Arguments to create many P2pTransfers.
      * @example
      * // Create many P2pTransfers
      * const p2pTransfer = await prisma.p2pTransfer.createManyAndReturn({
@@ -5057,11 +5057,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends p2pTransferCreateManyAndReturnArgs>(args?: SelectSubset<T, p2pTransferCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends P2pTransferCreateManyAndReturnArgs>(args?: SelectSubset<T, P2pTransferCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Delete a P2pTransfer.
-     * @param {p2pTransferDeleteArgs} args - Arguments to delete one P2pTransfer.
+     * @param {P2pTransferDeleteArgs} args - Arguments to delete one P2pTransfer.
      * @example
      * // Delete one P2pTransfer
      * const P2pTransfer = await prisma.p2pTransfer.delete({
@@ -5071,11 +5071,11 @@ export namespace Prisma {
      * })
      * 
      */
-    delete<T extends p2pTransferDeleteArgs>(args: SelectSubset<T, p2pTransferDeleteArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends P2pTransferDeleteArgs>(args: SelectSubset<T, P2pTransferDeleteArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Update one P2pTransfer.
-     * @param {p2pTransferUpdateArgs} args - Arguments to update one P2pTransfer.
+     * @param {P2pTransferUpdateArgs} args - Arguments to update one P2pTransfer.
      * @example
      * // Update one P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.update({
@@ -5088,11 +5088,11 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends p2pTransferUpdateArgs>(args: SelectSubset<T, p2pTransferUpdateArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends P2pTransferUpdateArgs>(args: SelectSubset<T, P2pTransferUpdateArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more P2pTransfers.
-     * @param {p2pTransferDeleteManyArgs} args - Arguments to filter P2pTransfers to delete.
+     * @param {P2pTransferDeleteManyArgs} args - Arguments to filter P2pTransfers to delete.
      * @example
      * // Delete a few P2pTransfers
      * const { count } = await prisma.p2pTransfer.deleteMany({
@@ -5102,13 +5102,13 @@ export namespace Prisma {
      * })
      * 
      */
-    deleteMany<T extends p2pTransferDeleteManyArgs>(args?: SelectSubset<T, p2pTransferDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends P2pTransferDeleteManyArgs>(args?: SelectSubset<T, P2pTransferDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more P2pTransfers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {P2pTransferUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many P2pTransfers
      * const p2pTransfer = await prisma.p2pTransfer.updateMany({
@@ -5121,11 +5121,11 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends p2pTransferUpdateManyArgs>(args: SelectSubset<T, p2pTransferUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends P2pTransferUpdateManyArgs>(args: SelectSubset<T, P2pTransferUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more P2pTransfers and returns the data updated in the database.
-     * @param {p2pTransferUpdateManyAndReturnArgs} args - Arguments to update many P2pTransfers.
+     * @param {P2pTransferUpdateManyAndReturnArgs} args - Arguments to update many P2pTransfers.
      * @example
      * // Update many P2pTransfers
      * const p2pTransfer = await prisma.p2pTransfer.updateManyAndReturn({
@@ -5151,11 +5151,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends p2pTransferUpdateManyAndReturnArgs>(args: SelectSubset<T, p2pTransferUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends P2pTransferUpdateManyAndReturnArgs>(args: SelectSubset<T, P2pTransferUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one P2pTransfer.
-     * @param {p2pTransferUpsertArgs} args - Arguments to update or create a P2pTransfer.
+     * @param {P2pTransferUpsertArgs} args - Arguments to update or create a P2pTransfer.
      * @example
      * // Update or create a P2pTransfer
      * const p2pTransfer = await prisma.p2pTransfer.upsert({
@@ -5170,14 +5170,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    upsert<T extends p2pTransferUpsertArgs>(args: SelectSubset<T, p2pTransferUpsertArgs<ExtArgs>>): Prisma__p2pTransferClient<$Result.GetResult<Prisma.$p2pTransferPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends P2pTransferUpsertArgs>(args: SelectSubset<T, P2pTransferUpsertArgs<ExtArgs>>): Prisma__P2pTransferClient<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of P2pTransfers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferCountArgs} args - Arguments to filter P2pTransfers to count.
+     * @param {P2pTransferCountArgs} args - Arguments to filter P2pTransfers to count.
      * @example
      * // Count the number of P2pTransfers
      * const count = await prisma.p2pTransfer.count({
@@ -5186,8 +5186,8 @@ export namespace Prisma {
      *   }
      * })
     **/
-    count<T extends p2pTransferCountArgs>(
-      args?: Subset<T, p2pTransferCountArgs>,
+    count<T extends P2pTransferCountArgs>(
+      args?: Subset<T, P2pTransferCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
@@ -5226,7 +5226,7 @@ export namespace Prisma {
      * Group by P2pTransfer.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {p2pTransferGroupByArgs} args - Group by arguments.
+     * @param {P2pTransferGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -5241,14 +5241,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends p2pTransferGroupByArgs,
+      T extends P2pTransferGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: p2pTransferGroupByArgs['orderBy'] }
-        : { orderBy?: p2pTransferGroupByArgs['orderBy'] },
+        ? { orderBy: P2pTransferGroupByArgs['orderBy'] }
+        : { orderBy?: P2pTransferGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -5297,20 +5297,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, p2pTransferGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetP2pTransferGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, P2pTransferGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetP2pTransferGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the p2pTransfer model
+   * Fields of the P2pTransfer model
    */
-  readonly fields: p2pTransferFieldRefs;
+  readonly fields: P2pTransferFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for p2pTransfer.
+   * The delegate class that acts as a "Promise-like" for P2pTransfer.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__p2pTransferClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__P2pTransferClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     fromUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     toUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -5340,425 +5340,425 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the p2pTransfer model
+   * Fields of the P2pTransfer model
    */
-  interface p2pTransferFieldRefs {
-    readonly id: FieldRef<"p2pTransfer", 'Int'>
-    readonly amount: FieldRef<"p2pTransfer", 'Int'>
-    readonly timestamp: FieldRef<"p2pTransfer", 'DateTime'>
-    readonly fromUserId: FieldRef<"p2pTransfer", 'Int'>
-    readonly toUserId: FieldRef<"p2pTransfer", 'Int'>
+  interface P2pTransferFieldRefs {
+    readonly id: FieldRef<"P2pTransfer", 'Int'>
+    readonly amount: FieldRef<"P2pTransfer", 'Int'>
+    readonly timestamp: FieldRef<"P2pTransfer", 'DateTime'>
+    readonly fromUserId: FieldRef<"P2pTransfer", 'Int'>
+    readonly toUserId: FieldRef<"P2pTransfer", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * p2pTransfer findUnique
+   * P2pTransfer findUnique
    */
-  export type p2pTransferFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter, which p2pTransfer to fetch.
+     * Filter, which P2pTransfer to fetch.
      */
-    where: p2pTransferWhereUniqueInput
+    where: P2pTransferWhereUniqueInput
   }
 
   /**
-   * p2pTransfer findUniqueOrThrow
+   * P2pTransfer findUniqueOrThrow
    */
-  export type p2pTransferFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter, which p2pTransfer to fetch.
+     * Filter, which P2pTransfer to fetch.
      */
-    where: p2pTransferWhereUniqueInput
+    where: P2pTransferWhereUniqueInput
   }
 
   /**
-   * p2pTransfer findFirst
+   * P2pTransfer findFirst
    */
-  export type p2pTransferFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter, which p2pTransfer to fetch.
+     * Filter, which P2pTransfer to fetch.
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of p2pTransfers to fetch.
+     * Determine the order of P2pTransfers to fetch.
      */
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for p2pTransfers.
+     * Sets the position for searching for P2pTransfers.
      */
-    cursor?: p2pTransferWhereUniqueInput
+    cursor?: P2pTransferWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` p2pTransfers from the position of the cursor.
+     * Take `±n` P2pTransfers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` p2pTransfers.
+     * Skip the first `n` P2pTransfers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of p2pTransfers.
+     * Filter by unique combinations of P2pTransfers.
      */
     distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
   }
 
   /**
-   * p2pTransfer findFirstOrThrow
+   * P2pTransfer findFirstOrThrow
    */
-  export type p2pTransferFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter, which p2pTransfer to fetch.
+     * Filter, which P2pTransfer to fetch.
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of p2pTransfers to fetch.
+     * Determine the order of P2pTransfers to fetch.
      */
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for p2pTransfers.
+     * Sets the position for searching for P2pTransfers.
      */
-    cursor?: p2pTransferWhereUniqueInput
+    cursor?: P2pTransferWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` p2pTransfers from the position of the cursor.
+     * Take `±n` P2pTransfers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` p2pTransfers.
+     * Skip the first `n` P2pTransfers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of p2pTransfers.
+     * Filter by unique combinations of P2pTransfers.
      */
     distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
   }
 
   /**
-   * p2pTransfer findMany
+   * P2pTransfer findMany
    */
-  export type p2pTransferFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter, which p2pTransfers to fetch.
+     * Filter, which P2pTransfers to fetch.
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of p2pTransfers to fetch.
+     * Determine the order of P2pTransfers to fetch.
      */
-    orderBy?: p2pTransferOrderByWithRelationInput | p2pTransferOrderByWithRelationInput[]
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing p2pTransfers.
+     * Sets the position for listing P2pTransfers.
      */
-    cursor?: p2pTransferWhereUniqueInput
+    cursor?: P2pTransferWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` p2pTransfers from the position of the cursor.
+     * Take `±n` P2pTransfers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` p2pTransfers.
+     * Skip the first `n` P2pTransfers.
      */
     skip?: number
     distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
   }
 
   /**
-   * p2pTransfer create
+   * P2pTransfer create
    */
-  export type p2pTransferCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * The data needed to create a p2pTransfer.
+     * The data needed to create a P2pTransfer.
      */
-    data: XOR<p2pTransferCreateInput, p2pTransferUncheckedCreateInput>
+    data: XOR<P2pTransferCreateInput, P2pTransferUncheckedCreateInput>
   }
 
   /**
-   * p2pTransfer createMany
+   * P2pTransfer createMany
    */
-  export type p2pTransferCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many p2pTransfers.
+     * The data used to create many P2pTransfers.
      */
-    data: p2pTransferCreateManyInput | p2pTransferCreateManyInput[]
+    data: P2pTransferCreateManyInput | P2pTransferCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * p2pTransfer createManyAndReturn
+   * P2pTransfer createManyAndReturn
    */
-  export type p2pTransferCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelectCreateManyAndReturn<ExtArgs> | null
+    select?: P2pTransferSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
-     * The data used to create many p2pTransfers.
+     * The data used to create many P2pTransfers.
      */
-    data: p2pTransferCreateManyInput | p2pTransferCreateManyInput[]
+    data: P2pTransferCreateManyInput | P2pTransferCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: P2pTransferIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * p2pTransfer update
+   * P2pTransfer update
    */
-  export type p2pTransferUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * The data needed to update a p2pTransfer.
+     * The data needed to update a P2pTransfer.
      */
-    data: XOR<p2pTransferUpdateInput, p2pTransferUncheckedUpdateInput>
+    data: XOR<P2pTransferUpdateInput, P2pTransferUncheckedUpdateInput>
     /**
-     * Choose, which p2pTransfer to update.
+     * Choose, which P2pTransfer to update.
      */
-    where: p2pTransferWhereUniqueInput
+    where: P2pTransferWhereUniqueInput
   }
 
   /**
-   * p2pTransfer updateMany
+   * P2pTransfer updateMany
    */
-  export type p2pTransferUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update p2pTransfers.
+     * The data used to update P2pTransfers.
      */
-    data: XOR<p2pTransferUpdateManyMutationInput, p2pTransferUncheckedUpdateManyInput>
+    data: XOR<P2pTransferUpdateManyMutationInput, P2pTransferUncheckedUpdateManyInput>
     /**
-     * Filter which p2pTransfers to update
+     * Filter which P2pTransfers to update
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
-     * Limit how many p2pTransfers to update.
+     * Limit how many P2pTransfers to update.
      */
     limit?: number
   }
 
   /**
-   * p2pTransfer updateManyAndReturn
+   * P2pTransfer updateManyAndReturn
    */
-  export type p2pTransferUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: P2pTransferSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
-     * The data used to update p2pTransfers.
+     * The data used to update P2pTransfers.
      */
-    data: XOR<p2pTransferUpdateManyMutationInput, p2pTransferUncheckedUpdateManyInput>
+    data: XOR<P2pTransferUpdateManyMutationInput, P2pTransferUncheckedUpdateManyInput>
     /**
-     * Filter which p2pTransfers to update
+     * Filter which P2pTransfers to update
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
-     * Limit how many p2pTransfers to update.
+     * Limit how many P2pTransfers to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: P2pTransferIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * p2pTransfer upsert
+   * P2pTransfer upsert
    */
-  export type p2pTransferUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * The filter to search for the p2pTransfer to update in case it exists.
+     * The filter to search for the P2pTransfer to update in case it exists.
      */
-    where: p2pTransferWhereUniqueInput
+    where: P2pTransferWhereUniqueInput
     /**
-     * In case the p2pTransfer found by the `where` argument doesn't exist, create a new p2pTransfer with this data.
+     * In case the P2pTransfer found by the `where` argument doesn't exist, create a new P2pTransfer with this data.
      */
-    create: XOR<p2pTransferCreateInput, p2pTransferUncheckedCreateInput>
+    create: XOR<P2pTransferCreateInput, P2pTransferUncheckedCreateInput>
     /**
-     * In case the p2pTransfer was found with the provided `where` argument, update it with this data.
+     * In case the P2pTransfer was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<p2pTransferUpdateInput, p2pTransferUncheckedUpdateInput>
+    update: XOR<P2pTransferUpdateInput, P2pTransferUncheckedUpdateInput>
   }
 
   /**
-   * p2pTransfer delete
+   * P2pTransfer delete
    */
-  export type p2pTransferDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
     /**
-     * Filter which p2pTransfer to delete.
+     * Filter which P2pTransfer to delete.
      */
-    where: p2pTransferWhereUniqueInput
+    where: P2pTransferWhereUniqueInput
   }
 
   /**
-   * p2pTransfer deleteMany
+   * P2pTransfer deleteMany
    */
-  export type p2pTransferDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which p2pTransfers to delete
+     * Filter which P2pTransfers to delete
      */
-    where?: p2pTransferWhereInput
+    where?: P2pTransferWhereInput
     /**
-     * Limit how many p2pTransfers to delete.
+     * Limit how many P2pTransfers to delete.
      */
     limit?: number
   }
 
   /**
-   * p2pTransfer without action
+   * P2pTransfer without action
    */
-  export type p2pTransferDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type P2pTransferDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the p2pTransfer
+     * Select specific fields to fetch from the P2pTransfer
      */
-    select?: p2pTransferSelect<ExtArgs> | null
+    select?: P2pTransferSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the p2pTransfer
+     * Omit specific fields from the P2pTransfer
      */
-    omit?: p2pTransferOmit<ExtArgs> | null
+    omit?: P2pTransferOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: p2pTransferInclude<ExtArgs> | null
+    include?: P2pTransferInclude<ExtArgs> | null
   }
 
 
@@ -7061,8 +7061,8 @@ export namespace Prisma {
     password?: SortOrder
     OnRampTransaction?: OnRampTransactionOrderByRelationAggregateInput
     Balance?: BalanceOrderByRelationAggregateInput
-    sentTransfers?: p2pTransferOrderByRelationAggregateInput
-    receivedTransfers?: p2pTransferOrderByRelationAggregateInput
+    sentTransfers?: P2pTransferOrderByRelationAggregateInput
+    receivedTransfers?: P2pTransferOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7220,20 +7220,20 @@ export namespace Prisma {
     userId?: IntWithAggregatesFilter<"OnRampTransaction"> | number
   }
 
-  export type p2pTransferWhereInput = {
-    AND?: p2pTransferWhereInput | p2pTransferWhereInput[]
-    OR?: p2pTransferWhereInput[]
-    NOT?: p2pTransferWhereInput | p2pTransferWhereInput[]
-    id?: IntFilter<"p2pTransfer"> | number
-    amount?: IntFilter<"p2pTransfer"> | number
-    timestamp?: DateTimeFilter<"p2pTransfer"> | Date | string
-    fromUserId?: IntFilter<"p2pTransfer"> | number
-    toUserId?: IntFilter<"p2pTransfer"> | number
+  export type P2pTransferWhereInput = {
+    AND?: P2pTransferWhereInput | P2pTransferWhereInput[]
+    OR?: P2pTransferWhereInput[]
+    NOT?: P2pTransferWhereInput | P2pTransferWhereInput[]
+    id?: IntFilter<"P2pTransfer"> | number
+    amount?: IntFilter<"P2pTransfer"> | number
+    timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
+    fromUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntFilter<"P2pTransfer"> | number
     fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
     toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
-  export type p2pTransferOrderByWithRelationInput = {
+  export type P2pTransferOrderByWithRelationInput = {
     id?: SortOrder
     amount?: SortOrder
     timestamp?: SortOrder
@@ -7243,41 +7243,41 @@ export namespace Prisma {
     toUser?: UserOrderByWithRelationInput
   }
 
-  export type p2pTransferWhereUniqueInput = Prisma.AtLeast<{
+  export type P2pTransferWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: p2pTransferWhereInput | p2pTransferWhereInput[]
-    OR?: p2pTransferWhereInput[]
-    NOT?: p2pTransferWhereInput | p2pTransferWhereInput[]
-    amount?: IntFilter<"p2pTransfer"> | number
-    timestamp?: DateTimeFilter<"p2pTransfer"> | Date | string
-    fromUserId?: IntFilter<"p2pTransfer"> | number
-    toUserId?: IntFilter<"p2pTransfer"> | number
+    AND?: P2pTransferWhereInput | P2pTransferWhereInput[]
+    OR?: P2pTransferWhereInput[]
+    NOT?: P2pTransferWhereInput | P2pTransferWhereInput[]
+    amount?: IntFilter<"P2pTransfer"> | number
+    timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
+    fromUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntFilter<"P2pTransfer"> | number
     fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
     toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
-  export type p2pTransferOrderByWithAggregationInput = {
+  export type P2pTransferOrderByWithAggregationInput = {
     id?: SortOrder
     amount?: SortOrder
     timestamp?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
-    _count?: p2pTransferCountOrderByAggregateInput
-    _avg?: p2pTransferAvgOrderByAggregateInput
-    _max?: p2pTransferMaxOrderByAggregateInput
-    _min?: p2pTransferMinOrderByAggregateInput
-    _sum?: p2pTransferSumOrderByAggregateInput
+    _count?: P2pTransferCountOrderByAggregateInput
+    _avg?: P2pTransferAvgOrderByAggregateInput
+    _max?: P2pTransferMaxOrderByAggregateInput
+    _min?: P2pTransferMinOrderByAggregateInput
+    _sum?: P2pTransferSumOrderByAggregateInput
   }
 
-  export type p2pTransferScalarWhereWithAggregatesInput = {
-    AND?: p2pTransferScalarWhereWithAggregatesInput | p2pTransferScalarWhereWithAggregatesInput[]
-    OR?: p2pTransferScalarWhereWithAggregatesInput[]
-    NOT?: p2pTransferScalarWhereWithAggregatesInput | p2pTransferScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"p2pTransfer"> | number
-    amount?: IntWithAggregatesFilter<"p2pTransfer"> | number
-    timestamp?: DateTimeWithAggregatesFilter<"p2pTransfer"> | Date | string
-    fromUserId?: IntWithAggregatesFilter<"p2pTransfer"> | number
-    toUserId?: IntWithAggregatesFilter<"p2pTransfer"> | number
+  export type P2pTransferScalarWhereWithAggregatesInput = {
+    AND?: P2pTransferScalarWhereWithAggregatesInput | P2pTransferScalarWhereWithAggregatesInput[]
+    OR?: P2pTransferScalarWhereWithAggregatesInput[]
+    NOT?: P2pTransferScalarWhereWithAggregatesInput | P2pTransferScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"P2pTransfer"> | number
+    amount?: IntWithAggregatesFilter<"P2pTransfer"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"P2pTransfer"> | Date | string
+    fromUserId?: IntWithAggregatesFilter<"P2pTransfer"> | number
+    toUserId?: IntWithAggregatesFilter<"P2pTransfer"> | number
   }
 
   export type BalanceWhereInput = {
@@ -7339,8 +7339,8 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionCreateNestedManyWithoutUserInput
     Balance?: BalanceCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7351,8 +7351,8 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionUncheckedCreateNestedManyWithoutUserInput
     Balance?: BalanceUncheckedCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferUncheckedCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferUncheckedCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferUncheckedCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToUserInput
   }
 
   export type UserUpdateInput = {
@@ -7362,8 +7362,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUpdateManyWithoutUserNestedInput
     Balance?: BalanceUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUpdateManyWithoutToUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7374,8 +7374,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUncheckedUpdateManyWithoutUserNestedInput
     Balance?: BalanceUncheckedUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUncheckedUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7513,14 +7513,14 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferCreateInput = {
+  export type P2pTransferCreateInput = {
     amount: number
     timestamp: Date | string
     fromUser: UserCreateNestedOneWithoutSentTransfersInput
     toUser: UserCreateNestedOneWithoutReceivedTransfersInput
   }
 
-  export type p2pTransferUncheckedCreateInput = {
+  export type P2pTransferUncheckedCreateInput = {
     id?: number
     amount: number
     timestamp: Date | string
@@ -7528,14 +7528,14 @@ export namespace Prisma {
     toUserId: number
   }
 
-  export type p2pTransferUpdateInput = {
+  export type P2pTransferUpdateInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUser?: UserUpdateOneRequiredWithoutSentTransfersNestedInput
     toUser?: UserUpdateOneRequiredWithoutReceivedTransfersNestedInput
   }
 
-  export type p2pTransferUncheckedUpdateInput = {
+  export type P2pTransferUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7543,7 +7543,7 @@ export namespace Prisma {
     toUserId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferCreateManyInput = {
+  export type P2pTransferCreateManyInput = {
     id?: number
     amount: number
     timestamp: Date | string
@@ -7551,12 +7551,12 @@ export namespace Prisma {
     toUserId: number
   }
 
-  export type p2pTransferUpdateManyMutationInput = {
+  export type P2pTransferUpdateManyMutationInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type p2pTransferUncheckedUpdateManyInput = {
+  export type P2pTransferUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7663,9 +7663,9 @@ export namespace Prisma {
   }
 
   export type P2pTransferListRelationFilter = {
-    every?: p2pTransferWhereInput
-    some?: p2pTransferWhereInput
-    none?: p2pTransferWhereInput
+    every?: P2pTransferWhereInput
+    some?: P2pTransferWhereInput
+    none?: P2pTransferWhereInput
   }
 
   export type SortOrderInput = {
@@ -7681,7 +7681,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type p2pTransferOrderByRelationAggregateInput = {
+  export type P2pTransferOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7904,7 +7904,7 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type p2pTransferCountOrderByAggregateInput = {
+  export type P2pTransferCountOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
     timestamp?: SortOrder
@@ -7912,22 +7912,14 @@ export namespace Prisma {
     toUserId?: SortOrder
   }
 
-  export type p2pTransferAvgOrderByAggregateInput = {
+  export type P2pTransferAvgOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
   }
 
-  export type p2pTransferMaxOrderByAggregateInput = {
-    id?: SortOrder
-    amount?: SortOrder
-    timestamp?: SortOrder
-    fromUserId?: SortOrder
-    toUserId?: SortOrder
-  }
-
-  export type p2pTransferMinOrderByAggregateInput = {
+  export type P2pTransferMaxOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
     timestamp?: SortOrder
@@ -7935,7 +7927,15 @@ export namespace Prisma {
     toUserId?: SortOrder
   }
 
-  export type p2pTransferSumOrderByAggregateInput = {
+  export type P2pTransferMinOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    timestamp?: SortOrder
+    fromUserId?: SortOrder
+    toUserId?: SortOrder
+  }
+
+  export type P2pTransferSumOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
     fromUserId?: SortOrder
@@ -7991,18 +7991,18 @@ export namespace Prisma {
     connect?: BalanceWhereUniqueInput | BalanceWhereUniqueInput[]
   }
 
-  export type p2pTransferCreateNestedManyWithoutFromUserInput = {
-    create?: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput> | p2pTransferCreateWithoutFromUserInput[] | p2pTransferUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutFromUserInput | p2pTransferCreateOrConnectWithoutFromUserInput[]
-    createMany?: p2pTransferCreateManyFromUserInputEnvelope
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
+  export type P2pTransferCreateNestedManyWithoutFromUserInput = {
+    create?: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput> | P2pTransferCreateWithoutFromUserInput[] | P2pTransferUncheckedCreateWithoutFromUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutFromUserInput | P2pTransferCreateOrConnectWithoutFromUserInput[]
+    createMany?: P2pTransferCreateManyFromUserInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
   }
 
-  export type p2pTransferCreateNestedManyWithoutToUserInput = {
-    create?: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput> | p2pTransferCreateWithoutToUserInput[] | p2pTransferUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutToUserInput | p2pTransferCreateOrConnectWithoutToUserInput[]
-    createMany?: p2pTransferCreateManyToUserInputEnvelope
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
+  export type P2pTransferCreateNestedManyWithoutToUserInput = {
+    create?: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput> | P2pTransferCreateWithoutToUserInput[] | P2pTransferUncheckedCreateWithoutToUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToUserInput | P2pTransferCreateOrConnectWithoutToUserInput[]
+    createMany?: P2pTransferCreateManyToUserInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
   }
 
   export type OnRampTransactionUncheckedCreateNestedManyWithoutUserInput = {
@@ -8019,18 +8019,18 @@ export namespace Prisma {
     connect?: BalanceWhereUniqueInput | BalanceWhereUniqueInput[]
   }
 
-  export type p2pTransferUncheckedCreateNestedManyWithoutFromUserInput = {
-    create?: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput> | p2pTransferCreateWithoutFromUserInput[] | p2pTransferUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutFromUserInput | p2pTransferCreateOrConnectWithoutFromUserInput[]
-    createMany?: p2pTransferCreateManyFromUserInputEnvelope
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
+  export type P2pTransferUncheckedCreateNestedManyWithoutFromUserInput = {
+    create?: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput> | P2pTransferCreateWithoutFromUserInput[] | P2pTransferUncheckedCreateWithoutFromUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutFromUserInput | P2pTransferCreateOrConnectWithoutFromUserInput[]
+    createMany?: P2pTransferCreateManyFromUserInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
   }
 
-  export type p2pTransferUncheckedCreateNestedManyWithoutToUserInput = {
-    create?: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput> | p2pTransferCreateWithoutToUserInput[] | p2pTransferUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutToUserInput | p2pTransferCreateOrConnectWithoutToUserInput[]
-    createMany?: p2pTransferCreateManyToUserInputEnvelope
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
+  export type P2pTransferUncheckedCreateNestedManyWithoutToUserInput = {
+    create?: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput> | P2pTransferCreateWithoutToUserInput[] | P2pTransferUncheckedCreateWithoutToUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToUserInput | P2pTransferCreateOrConnectWithoutToUserInput[]
+    createMany?: P2pTransferCreateManyToUserInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -8069,32 +8069,32 @@ export namespace Prisma {
     deleteMany?: BalanceScalarWhereInput | BalanceScalarWhereInput[]
   }
 
-  export type p2pTransferUpdateManyWithoutFromUserNestedInput = {
-    create?: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput> | p2pTransferCreateWithoutFromUserInput[] | p2pTransferUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutFromUserInput | p2pTransferCreateOrConnectWithoutFromUserInput[]
-    upsert?: p2pTransferUpsertWithWhereUniqueWithoutFromUserInput | p2pTransferUpsertWithWhereUniqueWithoutFromUserInput[]
-    createMany?: p2pTransferCreateManyFromUserInputEnvelope
-    set?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    disconnect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    delete?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    update?: p2pTransferUpdateWithWhereUniqueWithoutFromUserInput | p2pTransferUpdateWithWhereUniqueWithoutFromUserInput[]
-    updateMany?: p2pTransferUpdateManyWithWhereWithoutFromUserInput | p2pTransferUpdateManyWithWhereWithoutFromUserInput[]
-    deleteMany?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
+  export type P2pTransferUpdateManyWithoutFromUserNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput> | P2pTransferCreateWithoutFromUserInput[] | P2pTransferUncheckedCreateWithoutFromUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutFromUserInput | P2pTransferCreateOrConnectWithoutFromUserInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutFromUserInput | P2pTransferUpsertWithWhereUniqueWithoutFromUserInput[]
+    createMany?: P2pTransferCreateManyFromUserInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutFromUserInput | P2pTransferUpdateWithWhereUniqueWithoutFromUserInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutFromUserInput | P2pTransferUpdateManyWithWhereWithoutFromUserInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
   }
 
-  export type p2pTransferUpdateManyWithoutToUserNestedInput = {
-    create?: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput> | p2pTransferCreateWithoutToUserInput[] | p2pTransferUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutToUserInput | p2pTransferCreateOrConnectWithoutToUserInput[]
-    upsert?: p2pTransferUpsertWithWhereUniqueWithoutToUserInput | p2pTransferUpsertWithWhereUniqueWithoutToUserInput[]
-    createMany?: p2pTransferCreateManyToUserInputEnvelope
-    set?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    disconnect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    delete?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    update?: p2pTransferUpdateWithWhereUniqueWithoutToUserInput | p2pTransferUpdateWithWhereUniqueWithoutToUserInput[]
-    updateMany?: p2pTransferUpdateManyWithWhereWithoutToUserInput | p2pTransferUpdateManyWithWhereWithoutToUserInput[]
-    deleteMany?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
+  export type P2pTransferUpdateManyWithoutToUserNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput> | P2pTransferCreateWithoutToUserInput[] | P2pTransferUncheckedCreateWithoutToUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToUserInput | P2pTransferCreateOrConnectWithoutToUserInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutToUserInput | P2pTransferUpsertWithWhereUniqueWithoutToUserInput[]
+    createMany?: P2pTransferCreateManyToUserInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutToUserInput | P2pTransferUpdateWithWhereUniqueWithoutToUserInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutToUserInput | P2pTransferUpdateManyWithWhereWithoutToUserInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -8133,32 +8133,32 @@ export namespace Prisma {
     deleteMany?: BalanceScalarWhereInput | BalanceScalarWhereInput[]
   }
 
-  export type p2pTransferUncheckedUpdateManyWithoutFromUserNestedInput = {
-    create?: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput> | p2pTransferCreateWithoutFromUserInput[] | p2pTransferUncheckedCreateWithoutFromUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutFromUserInput | p2pTransferCreateOrConnectWithoutFromUserInput[]
-    upsert?: p2pTransferUpsertWithWhereUniqueWithoutFromUserInput | p2pTransferUpsertWithWhereUniqueWithoutFromUserInput[]
-    createMany?: p2pTransferCreateManyFromUserInputEnvelope
-    set?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    disconnect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    delete?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    update?: p2pTransferUpdateWithWhereUniqueWithoutFromUserInput | p2pTransferUpdateWithWhereUniqueWithoutFromUserInput[]
-    updateMany?: p2pTransferUpdateManyWithWhereWithoutFromUserInput | p2pTransferUpdateManyWithWhereWithoutFromUserInput[]
-    deleteMany?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
+  export type P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput> | P2pTransferCreateWithoutFromUserInput[] | P2pTransferUncheckedCreateWithoutFromUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutFromUserInput | P2pTransferCreateOrConnectWithoutFromUserInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutFromUserInput | P2pTransferUpsertWithWhereUniqueWithoutFromUserInput[]
+    createMany?: P2pTransferCreateManyFromUserInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutFromUserInput | P2pTransferUpdateWithWhereUniqueWithoutFromUserInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutFromUserInput | P2pTransferUpdateManyWithWhereWithoutFromUserInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
   }
 
-  export type p2pTransferUncheckedUpdateManyWithoutToUserNestedInput = {
-    create?: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput> | p2pTransferCreateWithoutToUserInput[] | p2pTransferUncheckedCreateWithoutToUserInput[]
-    connectOrCreate?: p2pTransferCreateOrConnectWithoutToUserInput | p2pTransferCreateOrConnectWithoutToUserInput[]
-    upsert?: p2pTransferUpsertWithWhereUniqueWithoutToUserInput | p2pTransferUpsertWithWhereUniqueWithoutToUserInput[]
-    createMany?: p2pTransferCreateManyToUserInputEnvelope
-    set?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    disconnect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    delete?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    connect?: p2pTransferWhereUniqueInput | p2pTransferWhereUniqueInput[]
-    update?: p2pTransferUpdateWithWhereUniqueWithoutToUserInput | p2pTransferUpdateWithWhereUniqueWithoutToUserInput[]
-    updateMany?: p2pTransferUpdateManyWithWhereWithoutToUserInput | p2pTransferUpdateManyWithWhereWithoutToUserInput[]
-    deleteMany?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
+  export type P2pTransferUncheckedUpdateManyWithoutToUserNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput> | P2pTransferCreateWithoutToUserInput[] | P2pTransferUncheckedCreateWithoutToUserInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToUserInput | P2pTransferCreateOrConnectWithoutToUserInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutToUserInput | P2pTransferUpsertWithWhereUniqueWithoutToUserInput[]
+    createMany?: P2pTransferCreateManyToUserInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutToUserInput | P2pTransferUpdateWithWhereUniqueWithoutToUserInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutToUserInput | P2pTransferUpdateManyWithWhereWithoutToUserInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
   }
 
   export type EnumAuthTypeFieldUpdateOperationsInput = {
@@ -8447,49 +8447,49 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type p2pTransferCreateWithoutFromUserInput = {
+  export type P2pTransferCreateWithoutFromUserInput = {
     amount: number
     timestamp: Date | string
     toUser: UserCreateNestedOneWithoutReceivedTransfersInput
   }
 
-  export type p2pTransferUncheckedCreateWithoutFromUserInput = {
+  export type P2pTransferUncheckedCreateWithoutFromUserInput = {
     id?: number
     amount: number
     timestamp: Date | string
     toUserId: number
   }
 
-  export type p2pTransferCreateOrConnectWithoutFromUserInput = {
-    where: p2pTransferWhereUniqueInput
-    create: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput>
+  export type P2pTransferCreateOrConnectWithoutFromUserInput = {
+    where: P2pTransferWhereUniqueInput
+    create: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput>
   }
 
-  export type p2pTransferCreateManyFromUserInputEnvelope = {
-    data: p2pTransferCreateManyFromUserInput | p2pTransferCreateManyFromUserInput[]
+  export type P2pTransferCreateManyFromUserInputEnvelope = {
+    data: P2pTransferCreateManyFromUserInput | P2pTransferCreateManyFromUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type p2pTransferCreateWithoutToUserInput = {
+  export type P2pTransferCreateWithoutToUserInput = {
     amount: number
     timestamp: Date | string
     fromUser: UserCreateNestedOneWithoutSentTransfersInput
   }
 
-  export type p2pTransferUncheckedCreateWithoutToUserInput = {
+  export type P2pTransferUncheckedCreateWithoutToUserInput = {
     id?: number
     amount: number
     timestamp: Date | string
     fromUserId: number
   }
 
-  export type p2pTransferCreateOrConnectWithoutToUserInput = {
-    where: p2pTransferWhereUniqueInput
-    create: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput>
+  export type P2pTransferCreateOrConnectWithoutToUserInput = {
+    where: P2pTransferWhereUniqueInput
+    create: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput>
   }
 
-  export type p2pTransferCreateManyToUserInputEnvelope = {
-    data: p2pTransferCreateManyToUserInput | p2pTransferCreateManyToUserInput[]
+  export type P2pTransferCreateManyToUserInputEnvelope = {
+    data: P2pTransferCreateManyToUserInput | P2pTransferCreateManyToUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8548,47 +8548,47 @@ export namespace Prisma {
     locked?: IntFilter<"Balance"> | number
   }
 
-  export type p2pTransferUpsertWithWhereUniqueWithoutFromUserInput = {
-    where: p2pTransferWhereUniqueInput
-    update: XOR<p2pTransferUpdateWithoutFromUserInput, p2pTransferUncheckedUpdateWithoutFromUserInput>
-    create: XOR<p2pTransferCreateWithoutFromUserInput, p2pTransferUncheckedCreateWithoutFromUserInput>
+  export type P2pTransferUpsertWithWhereUniqueWithoutFromUserInput = {
+    where: P2pTransferWhereUniqueInput
+    update: XOR<P2pTransferUpdateWithoutFromUserInput, P2pTransferUncheckedUpdateWithoutFromUserInput>
+    create: XOR<P2pTransferCreateWithoutFromUserInput, P2pTransferUncheckedCreateWithoutFromUserInput>
   }
 
-  export type p2pTransferUpdateWithWhereUniqueWithoutFromUserInput = {
-    where: p2pTransferWhereUniqueInput
-    data: XOR<p2pTransferUpdateWithoutFromUserInput, p2pTransferUncheckedUpdateWithoutFromUserInput>
+  export type P2pTransferUpdateWithWhereUniqueWithoutFromUserInput = {
+    where: P2pTransferWhereUniqueInput
+    data: XOR<P2pTransferUpdateWithoutFromUserInput, P2pTransferUncheckedUpdateWithoutFromUserInput>
   }
 
-  export type p2pTransferUpdateManyWithWhereWithoutFromUserInput = {
-    where: p2pTransferScalarWhereInput
-    data: XOR<p2pTransferUpdateManyMutationInput, p2pTransferUncheckedUpdateManyWithoutFromUserInput>
+  export type P2pTransferUpdateManyWithWhereWithoutFromUserInput = {
+    where: P2pTransferScalarWhereInput
+    data: XOR<P2pTransferUpdateManyMutationInput, P2pTransferUncheckedUpdateManyWithoutFromUserInput>
   }
 
-  export type p2pTransferScalarWhereInput = {
-    AND?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
-    OR?: p2pTransferScalarWhereInput[]
-    NOT?: p2pTransferScalarWhereInput | p2pTransferScalarWhereInput[]
-    id?: IntFilter<"p2pTransfer"> | number
-    amount?: IntFilter<"p2pTransfer"> | number
-    timestamp?: DateTimeFilter<"p2pTransfer"> | Date | string
-    fromUserId?: IntFilter<"p2pTransfer"> | number
-    toUserId?: IntFilter<"p2pTransfer"> | number
+  export type P2pTransferScalarWhereInput = {
+    AND?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
+    OR?: P2pTransferScalarWhereInput[]
+    NOT?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
+    id?: IntFilter<"P2pTransfer"> | number
+    amount?: IntFilter<"P2pTransfer"> | number
+    timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
+    fromUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntFilter<"P2pTransfer"> | number
   }
 
-  export type p2pTransferUpsertWithWhereUniqueWithoutToUserInput = {
-    where: p2pTransferWhereUniqueInput
-    update: XOR<p2pTransferUpdateWithoutToUserInput, p2pTransferUncheckedUpdateWithoutToUserInput>
-    create: XOR<p2pTransferCreateWithoutToUserInput, p2pTransferUncheckedCreateWithoutToUserInput>
+  export type P2pTransferUpsertWithWhereUniqueWithoutToUserInput = {
+    where: P2pTransferWhereUniqueInput
+    update: XOR<P2pTransferUpdateWithoutToUserInput, P2pTransferUncheckedUpdateWithoutToUserInput>
+    create: XOR<P2pTransferCreateWithoutToUserInput, P2pTransferUncheckedCreateWithoutToUserInput>
   }
 
-  export type p2pTransferUpdateWithWhereUniqueWithoutToUserInput = {
-    where: p2pTransferWhereUniqueInput
-    data: XOR<p2pTransferUpdateWithoutToUserInput, p2pTransferUncheckedUpdateWithoutToUserInput>
+  export type P2pTransferUpdateWithWhereUniqueWithoutToUserInput = {
+    where: P2pTransferWhereUniqueInput
+    data: XOR<P2pTransferUpdateWithoutToUserInput, P2pTransferUncheckedUpdateWithoutToUserInput>
   }
 
-  export type p2pTransferUpdateManyWithWhereWithoutToUserInput = {
-    where: p2pTransferScalarWhereInput
-    data: XOR<p2pTransferUpdateManyMutationInput, p2pTransferUncheckedUpdateManyWithoutToUserInput>
+  export type P2pTransferUpdateManyWithWhereWithoutToUserInput = {
+    where: P2pTransferScalarWhereInput
+    data: XOR<P2pTransferUpdateManyMutationInput, P2pTransferUncheckedUpdateManyWithoutToUserInput>
   }
 
   export type UserCreateWithoutOnRampTransactionInput = {
@@ -8597,8 +8597,8 @@ export namespace Prisma {
     number: string
     password: string
     Balance?: BalanceCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToUserInput
   }
 
   export type UserUncheckedCreateWithoutOnRampTransactionInput = {
@@ -8608,8 +8608,8 @@ export namespace Prisma {
     number: string
     password: string
     Balance?: BalanceUncheckedCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferUncheckedCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferUncheckedCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferUncheckedCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToUserInput
   }
 
   export type UserCreateOrConnectWithoutOnRampTransactionInput = {
@@ -8634,8 +8634,8 @@ export namespace Prisma {
     number?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     Balance?: BalanceUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUpdateManyWithoutToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOnRampTransactionInput = {
@@ -8645,8 +8645,8 @@ export namespace Prisma {
     number?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     Balance?: BalanceUncheckedUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUncheckedUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToUserNestedInput
   }
 
   export type UserCreateWithoutSentTransfersInput = {
@@ -8656,7 +8656,7 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionCreateNestedManyWithoutUserInput
     Balance?: BalanceCreateNestedManyWithoutUserInput
-    receivedTransfers?: p2pTransferCreateNestedManyWithoutToUserInput
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToUserInput
   }
 
   export type UserUncheckedCreateWithoutSentTransfersInput = {
@@ -8667,7 +8667,7 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionUncheckedCreateNestedManyWithoutUserInput
     Balance?: BalanceUncheckedCreateNestedManyWithoutUserInput
-    receivedTransfers?: p2pTransferUncheckedCreateNestedManyWithoutToUserInput
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToUserInput
   }
 
   export type UserCreateOrConnectWithoutSentTransfersInput = {
@@ -8682,7 +8682,7 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionCreateNestedManyWithoutUserInput
     Balance?: BalanceCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferCreateNestedManyWithoutFromUserInput
+    sentTransfers?: P2pTransferCreateNestedManyWithoutFromUserInput
   }
 
   export type UserUncheckedCreateWithoutReceivedTransfersInput = {
@@ -8693,7 +8693,7 @@ export namespace Prisma {
     password: string
     OnRampTransaction?: OnRampTransactionUncheckedCreateNestedManyWithoutUserInput
     Balance?: BalanceUncheckedCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferUncheckedCreateNestedManyWithoutFromUserInput
+    sentTransfers?: P2pTransferUncheckedCreateNestedManyWithoutFromUserInput
   }
 
   export type UserCreateOrConnectWithoutReceivedTransfersInput = {
@@ -8719,7 +8719,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUpdateManyWithoutUserNestedInput
     Balance?: BalanceUpdateManyWithoutUserNestedInput
-    receivedTransfers?: p2pTransferUpdateManyWithoutToUserNestedInput
+    receivedTransfers?: P2pTransferUpdateManyWithoutToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSentTransfersInput = {
@@ -8730,7 +8730,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUncheckedUpdateManyWithoutUserNestedInput
     Balance?: BalanceUncheckedUpdateManyWithoutUserNestedInput
-    receivedTransfers?: p2pTransferUncheckedUpdateManyWithoutToUserNestedInput
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToUserNestedInput
   }
 
   export type UserUpsertWithoutReceivedTransfersInput = {
@@ -8751,7 +8751,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUpdateManyWithoutUserNestedInput
     Balance?: BalanceUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUpdateManyWithoutFromUserNestedInput
+    sentTransfers?: P2pTransferUpdateManyWithoutFromUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutReceivedTransfersInput = {
@@ -8762,7 +8762,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUncheckedUpdateManyWithoutUserNestedInput
     Balance?: BalanceUncheckedUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
+    sentTransfers?: P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
   }
 
   export type UserCreateWithoutBalanceInput = {
@@ -8771,8 +8771,8 @@ export namespace Prisma {
     number: string
     password: string
     OnRampTransaction?: OnRampTransactionCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToUserInput
   }
 
   export type UserUncheckedCreateWithoutBalanceInput = {
@@ -8782,8 +8782,8 @@ export namespace Prisma {
     number: string
     password: string
     OnRampTransaction?: OnRampTransactionUncheckedCreateNestedManyWithoutUserInput
-    sentTransfers?: p2pTransferUncheckedCreateNestedManyWithoutFromUserInput
-    receivedTransfers?: p2pTransferUncheckedCreateNestedManyWithoutToUserInput
+    sentTransfers?: P2pTransferUncheckedCreateNestedManyWithoutFromUserInput
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToUserInput
   }
 
   export type UserCreateOrConnectWithoutBalanceInput = {
@@ -8808,8 +8808,8 @@ export namespace Prisma {
     number?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUpdateManyWithoutToUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutBalanceInput = {
@@ -8819,8 +8819,8 @@ export namespace Prisma {
     number?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     OnRampTransaction?: OnRampTransactionUncheckedUpdateManyWithoutUserNestedInput
-    sentTransfers?: p2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
-    receivedTransfers?: p2pTransferUncheckedUpdateManyWithoutToUserNestedInput
+    sentTransfers?: P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToUserNestedInput
   }
 
   export type OnRampTransactionCreateManyUserInput = {
@@ -8838,14 +8838,14 @@ export namespace Prisma {
     locked: number
   }
 
-  export type p2pTransferCreateManyFromUserInput = {
+  export type P2pTransferCreateManyFromUserInput = {
     id?: number
     amount: number
     timestamp: Date | string
     toUserId: number
   }
 
-  export type p2pTransferCreateManyToUserInput = {
+  export type P2pTransferCreateManyToUserInput = {
     id?: number
     amount: number
     timestamp: Date | string
@@ -8895,40 +8895,40 @@ export namespace Prisma {
     locked?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferUpdateWithoutFromUserInput = {
+  export type P2pTransferUpdateWithoutFromUserInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     toUser?: UserUpdateOneRequiredWithoutReceivedTransfersNestedInput
   }
 
-  export type p2pTransferUncheckedUpdateWithoutFromUserInput = {
+  export type P2pTransferUncheckedUpdateWithoutFromUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     toUserId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferUncheckedUpdateManyWithoutFromUserInput = {
+  export type P2pTransferUncheckedUpdateManyWithoutFromUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     toUserId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferUpdateWithoutToUserInput = {
+  export type P2pTransferUpdateWithoutToUserInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUser?: UserUpdateOneRequiredWithoutSentTransfersNestedInput
   }
 
-  export type p2pTransferUncheckedUpdateWithoutToUserInput = {
+  export type P2pTransferUncheckedUpdateWithoutToUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUserId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type p2pTransferUncheckedUpdateManyWithoutToUserInput = {
+  export type P2pTransferUncheckedUpdateManyWithoutToUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string

@@ -186,7 +186,7 @@ exports.Prisma.ModelName = {
   User: 'User',
   Merchant: 'Merchant',
   OnRampTransaction: 'OnRampTransaction',
-  p2pTransfer: 'p2pTransfer',
+  P2pTransfer: 'P2pTransfer',
   Balance: 'Balance'
 };
 

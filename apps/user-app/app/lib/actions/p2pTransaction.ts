@@ -1,6 +1,5 @@
 "use server"
 import { getServerSession } from "next-auth";
-
 import prisma from "@repo/db/client";
 import { authOptions } from "../authOption";
 
@@ -24,6 +23,9 @@ export async function p2pTransfer(to: string, amount: number) {
             message: "User not found"
         }
     }
+
+    
+
     await prisma.$transaction(async (tx) => {
         await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
 
@@ -43,15 +45,16 @@ export async function p2pTransfer(to: string, amount: number) {
             where: { userId: toUser.id },
             data: { amount: { increment: amount } },
           });
-
-        await tx.p.create({
-            data: {                
+        
+        await tx.p2pTransfer.create({
+            data: {
                 fromUserId: Number(from),
                 toUserId: toUser.id,
-                amount: amount
+                amount,
+                timestamp: new Date()
             }
-        })
-    });
+        });
 
+    });
 
 }

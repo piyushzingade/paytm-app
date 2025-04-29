@@ -19,7 +19,8 @@
     "next-auth": "^4.24.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.0",
