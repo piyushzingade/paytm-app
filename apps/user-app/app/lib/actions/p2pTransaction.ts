@@ -17,15 +17,11 @@ export async function p2pTransfer(to: string, amount: number) {
         }
     });
 
-
     if (!toUser) {
         return {
             message: "User not found"
         }
     }
-
-    
-
     await prisma.$transaction(async (tx) => {
         await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
 
@@ -36,16 +32,16 @@ export async function p2pTransfer(to: string, amount: number) {
             throw new Error('Insufficient funds');
           }
 
-        await tx.balance.update({
+          await tx.balance.update({
             where: { userId: Number(from) },
             data: { amount: { decrement: amount } },
           });
 
-        await tx.balance.update({
+          await tx.balance.update({
             where: { userId: toUser.id },
             data: { amount: { increment: amount } },
           });
-        
+
         await tx.p2pTransfer.create({
             data: {
                 fromUserId: Number(from),
@@ -53,8 +49,11 @@ export async function p2pTransfer(to: string, amount: number) {
                 amount,
                 timestamp: new Date()
             }
-        });
+        })
 
+          
     });
 
+
+    
 }

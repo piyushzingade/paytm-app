@@ -4,7 +4,7 @@ export function Card({
   title,
   children,
 }: {
-  title: string;
+  title: any;
   children?: React.ReactNode;
 }): JSX.Element {
   return (

@@ -1,9 +1,10 @@
-import prisma from "../../../../../packages/db/src";
+
 import { AddMoney } from "../../../components/AddMoneyCard";
 import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransactions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authOption";
+import prisma from "@repo/db/client";
 
 
 async function getBalance() {
@@ -28,7 +29,7 @@ async function getOnRampTransactions() {
     });
     return txns.map(t => ({
         time: t.startTime,
-        amount: t.amount,
+        amount : t.amount,
         status: t.status,
         provider: t.provider
     }))
