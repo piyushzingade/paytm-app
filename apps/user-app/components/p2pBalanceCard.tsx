@@ -1,5 +1,5 @@
 import { Card } from "@repo/ui/card";
-import { format } from "date-fns";
+
 
 export const P2pBalanceCard = ({ transactions }: {
     transactions: {
@@ -13,7 +13,7 @@ export const P2pBalanceCard = ({ transactions }: {
     <div className="w-full">
       <div className="">
         {transactions.map((transaction: any) => (
-          <div key={transaction.id} className="pt-4">
+          <div key={transaction.id} className="">
             <Card title={<div className="text-center">Transactions</div>}>
               <div className="p-4 space-y-2">
                 <div className="text-sm text-gray-700">

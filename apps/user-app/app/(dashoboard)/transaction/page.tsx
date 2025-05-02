@@ -1,5 +1,7 @@
+import { TransactionsChart } from "../../../components/TransactionChart";
+
 export default function() {
     return <div>
-        Transaction
+        <TransactionsChart/>
     </div>
 }
