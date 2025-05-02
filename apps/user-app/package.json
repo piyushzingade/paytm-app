@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "jsx": "preserve",
   "scripts": {
     "dev": "next dev --port 3000 --turbopack",
     "build": "next build",
@@ -27,7 +28,7 @@
     "@next/eslint-plugin-next": "^15.3.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "autoprefixer": "^10.4.20",
