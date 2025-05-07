@@ -38,6 +38,9 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      recoil:
+        specifier: ^0.7.7
+        version: 0.7.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^15.3.0
