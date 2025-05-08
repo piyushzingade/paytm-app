@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // turbo: {
+  //   loaders: {
+  //     ".html": "ignore", // Ignore HTML files in node_modules
+  //   },
+  // },
 };
 
 export default nextConfig;

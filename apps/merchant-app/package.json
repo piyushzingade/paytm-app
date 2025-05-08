@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "merchant-app",
   "version": "1.0.0",
   "type": "module",
   "private": true,
@@ -13,9 +13,14 @@
   "dependencies": {
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@types/bcryptjs": "^3.0.0",
+    "bcryptjs": "^3.0.2",
+    "chart.js": "^4.4.9",
+    "install": "^0.13.0",
     "next": "^15.3.0",
     "next-auth": "^4.24.11",
     "react": "^19.1.0",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
     "recoil": "^0.7.7"
   },

@@ -2,10 +2,11 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import type { AuthOptions } from "next-auth";
 
+
 export const auth: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   session: {
-    strategy: "jwt", // ✅ TypeScript now understands this is a valid value
+    strategy: "jwt",
   },
   providers: [
     GoogleProvider({
