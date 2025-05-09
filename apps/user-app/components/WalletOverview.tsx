@@ -1,4 +1,3 @@
-// components/WalletOverview.tsx
 "use client";
 
 import { Line, Doughnut } from "react-chartjs-2";
@@ -13,6 +12,9 @@ import {
   Legend,
 } from "chart.js";
 
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,17 +25,19 @@ ChartJS.register(
   Legend
 );
 
-const balanceData = {
-  labels: ["Balance", "Locked"],
-  datasets: [
-    {
-      label: "Balance",
-      data: [1200, 300],
-      backgroundColor: ["#4ade80", "#f87171"],
-      borderWidth: 1,
-    },
-  ],
-};
+
+interface BalanceData {
+  amount: number;
+  locked: number;
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    backgroundColor: string[];
+    borderWidth: number;
+  }[];
+}
+
 
 const transactions = [
   {
@@ -64,14 +68,13 @@ const monthlySpendingData = {
   datasets: [
     {
       label: "Monthly Spending",
-      data: [1200, 950, 1100, 1300], // sample values per week
+      data: [1200, 950, 1100, 1300],
       fill: false,
-      borderColor: "#f59e0b", // amber-500
+      borderColor: "#f59e0b",
       tension: 0.3,
     },
   ],
 };
-
 
 const spendingData = {
   labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -87,22 +90,43 @@ const spendingData = {
 };
 
 export default function WalletOverview() {
+  const [balance, setBalance] = useState<BalanceData | null>(null);
+
+  useEffect(() => {
+    const fetchBalance = async () => {
+      try {
+        const response = await axios.get("/api/balance");
+        setBalance(response.data);
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      }
+    };
+
+    fetchBalance();
+  }, []);
+
+  if (!balance) {
+    return <div>Loading...</div>;
+  }
+
+  const doughnutData = {
+    labels: balance.labels,
+    datasets: balance.datasets,
+  };
+
   return (
     <div className="p-6 space-y-8">
       <h1 className="text-2xl font-bold text-gray-800">Wallet Overview</h1>
 
-      {/* Three Cards in One Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-        {/* Balance Breakdown */}
         <div className="bg-white shadow-md rounded-xl p-4 w-full">
           <h2 className="text-lg font-semibold mb-2">Balance Breakdown</h2>
-          <Doughnut data={balanceData} />
+          <Doughnut data={doughnutData} />
           <p className="text-center text-xl mt-4 text-green-600 font-medium">
-            ₹1200 Available
+            ₹{(balance.amount)/100} Available
           </p>
         </div>
 
-        {/* Spending Charts */}
         <div className="bg-white shadow-md rounded-xl p-4 w-full">
           <h2 className="text-lg font-semibold text-center mb-2">
             Weekly Spending
@@ -114,7 +138,6 @@ export default function WalletOverview() {
           <Line data={monthlySpendingData} />
         </div>
 
-        {/* Recent Transactions */}
         <div className="bg-white shadow-md rounded-xl p-4 w-full">
           <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
           <ul className="space-y-4">
@@ -147,5 +170,4 @@ export default function WalletOverview() {
       </div>
     </div>
   );
-
 }

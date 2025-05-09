@@ -11,7 +11,7 @@ export default async function HeroSection() {
   return (
     <div className="w-full pt-4 space-y-8">
       <Greeting username={username} />
-      <WalletOverview />
+      <WalletOverview session={session} />
     </div>
   );
 }

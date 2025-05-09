@@ -4,10 +4,10 @@ import type { AuthOptions } from "next-auth";
 
 
 export const auth: AuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    strategy: "jwt",
-  },
+  // secret: process.env.NEXTAUTH_SECRET,
+  // session: {
+  //   strategy: "jwt",
+  // },
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",

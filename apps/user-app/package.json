@@ -17,6 +17,7 @@
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@types/bcrypt": "^5.0.2",
+    "axios": "^1.9.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.9",
     "date-fns": "^4.1.0",

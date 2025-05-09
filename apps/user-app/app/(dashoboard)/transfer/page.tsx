@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authOption";
 
 
-async function getBalance() {
+export async function getBalance() {
   const session = await getServerSession(authOptions);
   const balance = await prisma.balance.findFirst({
     where: {
