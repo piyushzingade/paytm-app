@@ -11,7 +11,10 @@ export default async function HeroSection() {
   return (
     <div className="w-full pt-4 space-y-8">
       <Greeting username={username} />
-      <WalletOverview session={session} />
+      <div className="flex items-center justify-between">
+      
+        <WalletOverview  />
+      </div>
     </div>
   );
 }

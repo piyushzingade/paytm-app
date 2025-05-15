@@ -4,7 +4,7 @@ import React from "react";
 
 type SidebarItemProps = {
   href?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   onClick?: () => void;
 };
@@ -29,13 +29,11 @@ export const SidebarItem = ({
 
   return (
     <div
-      className={`hover:text-[#6a51a6] flex ${selected ? "text-[#6a51a6]" : "text-slate-500"} cursor-pointer p-2 pl-8`}
+      className={`hover:bg-slate-50 flex rounded-xl cursor-pointer p-2 pl-2`}
       onClick={handleClick}
     >
       <div className="pr-2">{icon}</div>
-      <div
-        className={`font-bold ${selected ? "text-[#6a51a6]" : "text-slate-500"}`}
-      >
+      <div className="text-md font-medium text-slate-700 capitalize">
         {title}
       </div>
     </div>
