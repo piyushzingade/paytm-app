@@ -1,45 +1,26 @@
-import { getServerSession } from "next-auth";
 import { SendCard } from "../../../components/SendCard";
-import { authOptions } from "../../lib/authOption";
-import prisma from "@repo/db/client";
+
 import { P2pBalanceCard } from "../../../components/p2pBalanceCard";
+import { getUserTransactions } from "../../lib/actions/transactions";
 
-const getP2pBalance = async () => {
-  const session = await getServerSession(authOptions);
-  const user = await prisma.user.findFirst({
-    where: {
-      id: Number(session?.user.id),
-    },
-  });
-  const transactions = await prisma.p2pTransfer.findMany({
-    where: {
-      id: user?.id,
-    },
-  });
+export default async function Page() {
+  const transaction = await getUserTransactions();
 
-  return transactions.map((t) => ({
-    id: t.id,
-    amount: t.amount,
-    date: t.timestamp,
-    toUser : t.toUserId,
-}));
-}
+  return (
+    <div className="w-full px-4 md:px-8 py-8">
+      <h1 className="text-3xl md:text-4xl text-[#6a51a6] font-bold text-center mb-8">
+        Send Money to Friends
+      </h1>
 
-export default async function() {
-    const transactions = await getP2pBalance();
-    return (
-      <div className="w-screen">
-        <div className="text-4xl text-[#6a51a6] pt-8  font-bold">
-          Send Money to Friends
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="w-full">
+          <SendCard />
         </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-          <div className=" pt-8">
-            <SendCard />
-          </div>
-          <div className="pt-8">
-            <P2pBalanceCard transactions={transactions}/>
-          </div>
+
+        <div className="w-full">
+          <P2pBalanceCard transactions={transaction} />
         </div>
       </div>
-    );
+    </div>
+  );
 }

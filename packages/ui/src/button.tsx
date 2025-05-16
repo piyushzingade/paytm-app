@@ -6,6 +6,7 @@ interface ButtonProps {
   children?: ReactNode;
   className?: string;
   onClick?: () => void;
+  disabled? : boolean
 }
 
 export const Button = ({ onClick, children  , className}: ButtonProps) => {

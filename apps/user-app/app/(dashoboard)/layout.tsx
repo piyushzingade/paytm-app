@@ -1,7 +1,6 @@
+// app/(dashboard)/layout.tsx or similar path
 import { JSX } from "react";
-
 import Sidebar from "../../components/Sidebar";
-
 
 export default function Layout({
   children,
@@ -9,15 +8,14 @@ export default function Layout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex  bg-white">
-      <div className="w-64  bg-white min-h-screen  pt-6 flex flex-col justify-between">
-        {/* Sidebar Header */}
+    <div className="flex min-h-screen bg-white">
+      {/* Sidebar (fixed width) */}
+      <div className="w-64 bg-white ">
         <Sidebar />
       </div>
 
-      <div className="rounded-xl border p-3 my-3 bg-[#f9fafb]">{children}</div>
+      {/* Main Content (fills rest of the space) */}
+      <main className="flex-1 bg-[#f9fafb] p-6 border rounded-xl my-3 mr-3">{children}</main>
     </div>
   );
 }
-
-
