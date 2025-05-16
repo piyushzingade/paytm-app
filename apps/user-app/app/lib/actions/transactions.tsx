@@ -25,3 +25,33 @@ export const getUserTransactions = async () => {
     toUser: t.toUserId,
   }));
 };
+
+type TransactionType = "sent" | "received";
+
+export async function getUserTransactionsForChart() {
+  const session = await getServerSession(authOptions);
+  const userId = session?.user?.id ? Number(session.user.id) : null;
+  if (!userId) return [];
+
+  const transactions = await prisma.p2pTransfer.findMany({
+    where: {
+      OR: [{ fromUserId: userId }, { toUserId: userId }],
+    },
+    orderBy: { timestamp: "desc" },
+  });
+
+  return transactions.map((tx) => {
+    const type: TransactionType =
+      tx.fromUserId === userId ? "sent" : "received";
+    return {
+      id: tx.id,
+      type,
+      amount: tx.amount / 100,
+      description:
+        type === "sent"
+          ? `Sent to User ${tx.toUserId}`
+          : `Received from User ${tx.fromUserId}`,
+      date: tx.timestamp?.toISOString().split("T")[0] ?? "", // ensures string
+    };
+  });
+}
