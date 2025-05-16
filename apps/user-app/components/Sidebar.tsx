@@ -4,8 +4,7 @@ import { Avatar, AvatarFallback ,  AvatarImage} from "@repo/ui/Avatar";
 import { SidebarItem } from "./SidebarItem";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { Router, useRouter } from "next/router";
-import { use } from "react";
+
 
 export default function Sidebar() {
     // const router = useRouter();
@@ -65,8 +64,7 @@ export default function Sidebar() {
         <button
           
           className="mt-2 w-full flex items-center justify-start mb-3"
-          onClick={() => signOut() 
-            // router.push("/api/auth/sign")}
+          onClick={() => signOut({ callbackUrl: "/login" })
           }
         >
           <LogOutIcon />

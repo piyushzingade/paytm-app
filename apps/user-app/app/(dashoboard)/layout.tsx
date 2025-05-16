@@ -10,12 +10,12 @@ export default function Layout({
 }): JSX.Element {
   return (
     <div className="flex  bg-white">
-      <div className="w-64  bg-white min-h-screen mr-4 pt-6 flex flex-col justify-between">
+      <div className="w-64  bg-white min-h-screen  pt-6 flex flex-col justify-between">
         {/* Sidebar Header */}
         <Sidebar />
       </div>
 
-      <div className="rounded-xl border p-3 my-4 bg-[#f9fafb]">{children}</div>
+      <div className="rounded-xl border p-3 my-3 bg-[#f9fafb]">{children}</div>
     </div>
   );
 }

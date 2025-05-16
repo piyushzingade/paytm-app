@@ -9,7 +9,7 @@ export default async function HeroSection() {
   const username = session?.user?.name || "User";
 
   return (
-    <div className="w-full pt-4 space-y-8">
+    <div className="w-full pt-4 space-y-4">
       <Greeting username={username} />
       <div className="flex items-center justify-between">
       

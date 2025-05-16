@@ -106,7 +106,7 @@ export default function WalletOverview() {
   }, []);
 
   if (!balance) {
-    return <div>Loading...</div>;
+    return <div className="w-full">Loading...</div>;
   }
 
   const doughnutData = {
