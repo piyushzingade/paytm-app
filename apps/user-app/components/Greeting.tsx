@@ -14,7 +14,7 @@ export default function Greeting({ username }: { username: string }) {
   const greeting = getGreeting();
 
   return (
-    <h1 className="text-3xl font-bold text-gray-700">
+    <h1 className="text-3xl font-bold text-[#6a51a6] ">
       {greeting}, <span className="capitalize">{username}</span>
     </h1>
   );

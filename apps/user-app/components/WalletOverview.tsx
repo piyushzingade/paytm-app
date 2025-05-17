@@ -14,6 +14,8 @@ import {
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { get } from "http";
+import { getUserTransactionsForChart } from "../app/lib/actions/transactions";
 
 ChartJS.register(
   CategoryScale,
@@ -89,7 +91,8 @@ const spendingData = {
   ],
 };
 
-export default function WalletOverview() {
+export default  function WalletOverview() {
+  // const transactions1 =  getUserTransactionsForChart();
   const [balance, setBalance] = useState<BalanceData | null>(null);
 
   useEffect(() => {
@@ -116,14 +119,16 @@ export default function WalletOverview() {
 
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-2xl font-bold text-gray-800 border-b">Wallet Overview</h1>
+      <h1 className="text-2xl font-bold text-[#6a51a6]  border-b">
+        Wallet Overview
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
         <div className="bg-white shadow-md rounded-xl p-4 w-full">
           <h2 className="text-lg font-semibold mb-2">Balance Breakdown</h2>
           <Doughnut data={doughnutData} />
           <p className="text-center text-xl mt-4 text-green-600 font-medium">
-            ₹{(balance.amount)/100} Available
+            ₹{balance.amount / 100} Available
           </p>
         </div>
 

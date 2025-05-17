@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 // Define the Transaction type
 type Transaction = {
@@ -31,7 +31,7 @@ export const TransactionsChart = ({
     <div className="flex flex-col w-full min-h-full px-6 pt-6">
       {/* Header + Filter Buttons */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-bold text-[#6a51a6] ">
           Recent Transactions
         </h2>
         <div className="space-x-2">
