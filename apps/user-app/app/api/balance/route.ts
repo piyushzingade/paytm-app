@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
 
   const userId = Number(token.sub);
 
-  const balance = await prisma.balance.findFirst({
+  const balance = await prisma.userBalance.findFirst({
     where: { userId },
   });
 

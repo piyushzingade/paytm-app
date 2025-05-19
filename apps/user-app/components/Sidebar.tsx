@@ -22,7 +22,7 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 space-y-1 px-2">
-        <SidebarItem href="/dashboard" icon={<HomeIcon />} title="Home" />
+        <SidebarItem href="/home" icon={<HomeIcon />} title="Home" />
         <SidebarItem
           href="/transfer"
           icon={<TransferIcon />}
@@ -34,7 +34,7 @@ export default function Sidebar() {
           title="Transactions"
         />
         <SidebarItem
-          href="/p2p"
+          href="/p2pTransfer"
           icon={<P2PTransferIcon />}
           title="P2P Transfer"
         />

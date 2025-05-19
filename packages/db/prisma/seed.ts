@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../generated/prisma'
 import bcrypt from "bcrypt";
 const prisma = new PrismaClient()
 
@@ -10,10 +10,10 @@ async function main() {
       number: '1111111111',
       password: await bcrypt.hash('alice', 10),
       name: 'alice',
-      Balance: {
+      balances: {
         create: {
             amount: 20000,
-            locked: 0
+            locked: 250
         }
       },
       OnRampTransaction: {
@@ -34,10 +34,10 @@ async function main() {
       number: '2222222222',
       password: await bcrypt.hash('bob', 10),
       name: 'bob',
-      Balance: {
+      balances: {
         create: {
-            amount: 2000,
-            locked: 0
+            amount: 20000,
+            locked: 100
         }
       },
       OnRampTransaction: {

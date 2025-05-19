@@ -10,4 +10,6 @@ declare module "next-auth" {
       image: string;
     };
   }
+
+
 }

@@ -9,18 +9,15 @@ import { createOnRampTransaction } from "../app/lib/actions/createOnRampTxn";
 const SUPPORTED_BANKS = [
   {
     name: "HDFC Bank",
-    redirectUrl: "https://netbanking.hdfcbank.com",
+
   },
   {
     name: "Axis Bank",
-    redirectUrl: "https://www.axisbank.com/",
   },
 ];
 
 export const AddMoney = () => {
-  const [redirectUrl, setRedirectUrl] = useState(
-    SUPPORTED_BANKS[0]?.redirectUrl
-  );
+  
   const [provider, setProvider] = useState(SUPPORTED_BANKS[0]?.name || "");
   const [value, setValue] = useState(0);
 
@@ -38,7 +35,6 @@ export const AddMoney = () => {
         <Select
           onSelect={(value) => {
             const selected = SUPPORTED_BANKS.find((x) => x.name === value);
-            setRedirectUrl(selected?.redirectUrl || "");
             setProvider(selected?.name || "");
           }}
           options={SUPPORTED_BANKS.map((x) => ({
@@ -51,7 +47,7 @@ export const AddMoney = () => {
           <Button
             onClick={async () => {
               await createOnRampTransaction(provider, value);
-              window.location.href = redirectUrl || "";
+            
             }}
             className="border border-slate-500 text-slate-700 bg-transparent p-2 px-10 rounded-xl hover:text-white hover:bg-[#6a51a6]"
           >

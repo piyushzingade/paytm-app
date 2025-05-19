@@ -1,5 +1,7 @@
 import express from "express";
 import db from "@repo/db/client";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 
 app.use(express.json())
@@ -13,13 +15,13 @@ app.post("/hdfcWebhook", async (req, res) => {
         amount: string
     } = {
         token: req.body.token,
-        userId: req.body.user_identifier,
+        userId: req.body.user_id,
         amount: req.body.amount
     };
 
     try {
         await db.$transaction([
-            db.balance.updateMany({
+            db.userBalance.updateMany({
                 where: {
                     userId: Number(paymentInformation.userId)
                 },
@@ -29,7 +31,7 @@ app.post("/hdfcWebhook", async (req, res) => {
                         increment: Number(paymentInformation.amount)
                     }
                 }
-            }),
+            }), 
             db.onRampTransaction.updateMany({
                 where: {
                     token: paymentInformation.token

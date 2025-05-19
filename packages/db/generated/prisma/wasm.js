@@ -122,13 +122,16 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   number: 'number',
-  password: 'password'
+  password: 'password',
+  upiId: 'upiId'
 };
 
 exports.Prisma.MerchantScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
+  number: 'number',
+  upiId: 'upiId',
   auth_type: 'auth_type'
 };
 
@@ -150,9 +153,16 @@ exports.Prisma.P2pTransferScalarFieldEnum = {
   toUserId: 'toUserId'
 };
 
-exports.Prisma.BalanceScalarFieldEnum = {
+exports.Prisma.UserBalanceScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  amount: 'amount',
+  locked: 'locked'
+};
+
+exports.Prisma.MerchantBalanceScalarFieldEnum = {
+  id: 'id',
+  merchantId: 'merchantId',
   amount: 'amount',
   locked: 'locked'
 };
@@ -187,7 +197,8 @@ exports.Prisma.ModelName = {
   Merchant: 'Merchant',
   OnRampTransaction: 'OnRampTransaction',
   P2pTransfer: 'P2pTransfer',
-  Balance: 'Balance'
+  UserBalance: 'UserBalance',
+  MerchantBalance: 'MerchantBalance'
 };
 
 /**

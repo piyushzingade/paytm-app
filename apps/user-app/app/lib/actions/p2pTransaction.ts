@@ -1,8 +1,9 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import prisma from "@repo/db/client";
 import { authOptions } from "../authOption";
+import prisma from "@repo/db/client";
+// import { z } from "zod";
 
 export async function p2pTransfer(
   to: string,
@@ -19,9 +20,7 @@ export async function p2pTransfer(
   }
 
   const toUser = await prisma.user.findFirst({
-    where: {
-      number: to,
-    },
+    where: { number: to },
   });
 
   if (!toUser) {
@@ -33,23 +32,22 @@ export async function p2pTransfer(
 
   try {
     await prisma.$transaction(async (tx) => {
-      // Lock sender's balance row
-      await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
+      await tx.$queryRaw`SELECT * FROM "UserBalance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
 
-      const fromBalance = await tx.balance.findUnique({
+      const fromBalance = await tx.userBalance.findUnique({
         where: { userId: Number(from) },
       });
 
       if (!fromBalance || fromBalance.amount < amount) {
-        throw new Error("Insufficient funds");
+        throw new Error("Insufficient balance");
       }
 
-      await tx.balance.update({
+      await tx.userBalance.update({
         where: { userId: Number(from) },
         data: { amount: { decrement: amount } },
       });
 
-      await tx.balance.update({
+      await tx.userBalance.update({
         where: { userId: toUser.id },
         data: { amount: { increment: amount } },
       });
@@ -71,7 +69,7 @@ export async function p2pTransfer(
   } catch (error: any) {
     return {
       success: false,
-      message: error.message || "Transfer failed due to an unknown error.",
+      message: error.message || "Transfer failed due to unknown error.",
     };
   }
 }

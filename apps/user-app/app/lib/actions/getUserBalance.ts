@@ -2,7 +2,7 @@
 import prisma from "@repo/db/client";
 
 export async function getBalance(session: any) {
-  const balance = await prisma.balance.findFirst({
+  const balance = await prisma.userBalance.findFirst({
     where: {
       userId: Number(session?.user?.id),
     },

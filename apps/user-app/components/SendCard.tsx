@@ -14,11 +14,15 @@ export function SendCard() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSend = async () => {
     setStatus("loading");
+    setErrorMessage("");
+
     try {
       const result = await p2pTransfer(number, Number(amount) * 100);
+
       if (result?.success) {
         setStatus("success");
         setTimeout(() => {
@@ -27,15 +31,24 @@ export function SendCard() {
           setAmount("");
         }, 2000);
       } else {
-        throw new Error("Transaction failed");
+        setErrorMessage(result.message || "Transaction failed");
+        setStatus("error");
+        setTimeout(() => {
+          setStatus("idle");
+          setErrorMessage("");
+          setNumber("");
+          setAmount("");
+        }, 3000);
       }
     } catch {
+      setErrorMessage("Unexpected error occurred.");
       setStatus("error");
       setTimeout(() => {
         setStatus("idle");
+        setErrorMessage("");
         setNumber("");
         setAmount("");
-      }, 2000);
+      }, 3000);
     }
   };
 
@@ -105,6 +118,9 @@ export function SendCard() {
                   <XCircle className="w-12 h-12 text-red-500 mx-auto" />
                   <div className="text-lg font-semibold text-red-600">
                     Payment failed!
+                  </div>
+                  <div className="text-sm text-gray-500 mt-2">
+                    {errorMessage}
                   </div>
                 </>
               )}
