@@ -4,6 +4,7 @@ import { BalanceCard } from "../../../components/BalanceCard";
 import { OnRampTransactions } from "../../../components/OnRampTransactions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/authOption";
+import RequireAuth from "../../../components/RequireAuth";
 
 
 export async function getBalance() {
@@ -40,21 +41,23 @@ export default async function () {
   const transactions = await getOnRampTransactions(); 
 
   return (
-    <div className="w-full">
-      <div className="text-4xl text-[#6a51a6] pt-8 mb-8 font-bold">
-        Add Amount to Your Wallet
-      </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-        <div>
-          <AddMoney />
+    <RequireAuth>
+      <div className="w-full">
+        <div className="text-4xl text-[#6a51a6] pt-8 mb-8 font-bold">
+          Add Amount to Your Wallet
         </div>
-        <div>
-          <BalanceCard amount={balance.amount} locked={balance.locked} />
-          <div className="pt-4">
-            <OnRampTransactions transactions={transactions} />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
+          <div>
+            <AddMoney />
+          </div>
+          <div>
+            <BalanceCard amount={balance.amount} locked={balance.locked} />
+            <div className="pt-4">
+              <OnRampTransactions transactions={transactions} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </RequireAuth>
   );
 }

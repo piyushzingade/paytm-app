@@ -1,9 +1,10 @@
 "use client";
 
 import { Avatar, AvatarFallback ,  AvatarImage} from "@repo/ui/Avatar";
-import { SidebarItem } from "./SidebarItem";
+
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { SidebarItem } from "./SidebarItem";
 
 
 export default function Sidebar() {

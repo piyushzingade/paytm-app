@@ -13,10 +13,10 @@ export default function NotFound() {
         Oops! Page not found.
       </p>
       <Link
-        href="/home"
+        href="/dashboard"
         className="px-6 py-2 text-white bg-blue-600 hover:bg-blue-700 transition rounded-lg"
       >
-        Go back home
+        Go back to Dashboard
       </Link>
     </div>
   );

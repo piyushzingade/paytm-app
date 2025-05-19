@@ -22,7 +22,7 @@ export default function LoginPage() {
     });
 
     if (res?.ok) {
-      router.push("/dashboard");
+      router.push("/home");
     } else {
       setError("Invalid phone or password.");
     }
