@@ -8,7 +8,7 @@ import { JSX } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wallet",
+  title: "Merchant Wallet",
   description: "Simple wallet app",
   icons: {
     icon: "/favicon.ico",

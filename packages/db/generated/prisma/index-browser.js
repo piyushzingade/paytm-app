@@ -150,7 +150,8 @@ exports.Prisma.P2pTransferScalarFieldEnum = {
   amount: 'amount',
   timestamp: 'timestamp',
   fromUserId: 'fromUserId',
-  toUserId: 'toUserId'
+  toUserId: 'toUserId',
+  toMerchantId: 'toMerchantId'
 };
 
 exports.Prisma.UserBalanceScalarFieldEnum = {

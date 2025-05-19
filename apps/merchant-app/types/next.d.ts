@@ -7,28 +7,15 @@ declare module "next-auth" {
       email: string;
       image: string;
       name: string;
+      upi : string
     };
-    user : {
-      id: string;
-      email: string;
-      image: string;
-      name: string;
-    }
-  }
-
-  interface User {
-    id: string;
-    email: string;
-    image: string;
-    name: string;
   }
 
   interface JWT {
-    merchant?: {
-      id: string;
-      email: string;
-      image: string;
-      name: string;
-    };
+    id?: string;
+    email?: string;
+    picture?: string;
+    name?: string;
+    upi? : string
   }
 }

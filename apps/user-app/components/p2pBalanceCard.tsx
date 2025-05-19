@@ -9,7 +9,7 @@ export const P2pBalanceCard = ({
     id: number;
     amount: number;
     date: Date;
-    toUser: number;
+    toUser: number | null;
   }[];
 }) => {
   return (

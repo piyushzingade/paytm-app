@@ -15,20 +15,24 @@ model User {
   number             String              @unique
   password           String
   upiId              String?             @unique
+
   OnRampTransaction  OnRampTransaction[]
   balances           UserBalance[]       
+
   sentTransfers      P2pTransfer[]       @relation(name: "FromUserRelation")
   receivedTransfers  P2pTransfer[]       @relation(name: "ToUserRelation")
 }
 
 model Merchant {
-  id         Int               @id @default(autoincrement())
-  email      String            @unique
-  name       String?
-  number     String?           @unique
-  upiId      String?           @unique
-  auth_type  AuthType
-  balances   MerchantBalance[] 
+  id                Int               @id @default(autoincrement())
+  email             String            @unique
+  name              String?
+  number            String?           @unique
+  upiId             String?           @unique
+  auth_type         AuthType
+  balances          MerchantBalance[] 
+  receivedTransfers P2pTransfer[]    @relation("ToMerchantRelation")
+
 }
 
 model OnRampTransaction {
@@ -43,13 +47,17 @@ model OnRampTransaction {
 }
 
 model P2pTransfer {
-  id          Int      @id @default(autoincrement())
-  amount      Int
-  timestamp   DateTime
-  fromUserId  Int
-  fromUser    User     @relation(name: "FromUserRelation", fields: [fromUserId], references: [id])
-  toUserId    Int
-  toUser      User     @relation(name: "ToUserRelation", fields: [toUserId], references: [id])
+  id            Int      @id @default(autoincrement())
+  amount        Int
+  timestamp     DateTime
+  fromUserId    Int
+  fromUser      User     @relation(name: "FromUserRelation", fields: [fromUserId], references: [id])
+
+  toUserId      Int?
+  toUser        User?     @relation(name: "ToUserRelation", fields: [toUserId], references: [id])
+
+  toMerchantId  Int?
+  toMerchant    Merchant? @relation(name: "ToMerchantRelation", fields: [toMerchantId], references: [id])
 }
 
 model UserBalance {

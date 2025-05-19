@@ -1413,10 +1413,12 @@ export namespace Prisma {
 
   export type MerchantCountOutputType = {
     balances: number
+    receivedTransfers: number
   }
 
   export type MerchantCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     balances?: boolean | MerchantCountOutputTypeCountBalancesArgs
+    receivedTransfers?: boolean | MerchantCountOutputTypeCountReceivedTransfersArgs
   }
 
   // Custom InputTypes
@@ -1435,6 +1437,13 @@ export namespace Prisma {
    */
   export type MerchantCountOutputTypeCountBalancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: MerchantBalanceWhereInput
+  }
+
+  /**
+   * MerchantCountOutputType without action
+   */
+  export type MerchantCountOutputTypeCountReceivedTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: P2pTransferWhereInput
   }
 
 
@@ -2850,6 +2859,7 @@ export namespace Prisma {
     upiId?: boolean
     auth_type?: boolean
     balances?: boolean | Merchant$balancesArgs<ExtArgs>
+    receivedTransfers?: boolean | Merchant$receivedTransfersArgs<ExtArgs>
     _count?: boolean | MerchantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["merchant"]>
 
@@ -2883,6 +2893,7 @@ export namespace Prisma {
   export type MerchantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "number" | "upiId" | "auth_type", ExtArgs["result"]["merchant"]>
   export type MerchantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     balances?: boolean | Merchant$balancesArgs<ExtArgs>
+    receivedTransfers?: boolean | Merchant$receivedTransfersArgs<ExtArgs>
     _count?: boolean | MerchantCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MerchantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2892,6 +2903,7 @@ export namespace Prisma {
     name: "Merchant"
     objects: {
       balances: Prisma.$MerchantBalancePayload<ExtArgs>[]
+      receivedTransfers: Prisma.$P2pTransferPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3295,6 +3307,7 @@ export namespace Prisma {
   export interface Prisma__MerchantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     balances<T extends Merchant$balancesArgs<ExtArgs> = {}>(args?: Subset<T, Merchant$balancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MerchantBalancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    receivedTransfers<T extends Merchant$receivedTransfersArgs<ExtArgs> = {}>(args?: Subset<T, Merchant$receivedTransfersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$P2pTransferPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3739,6 +3752,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: MerchantBalanceScalarFieldEnum | MerchantBalanceScalarFieldEnum[]
+  }
+
+  /**
+   * Merchant.receivedTransfers
+   */
+  export type Merchant$receivedTransfersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the P2pTransfer
+     */
+    select?: P2pTransferSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the P2pTransfer
+     */
+    omit?: P2pTransferOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: P2pTransferInclude<ExtArgs> | null
+    where?: P2pTransferWhereInput
+    orderBy?: P2pTransferOrderByWithRelationInput | P2pTransferOrderByWithRelationInput[]
+    cursor?: P2pTransferWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: P2pTransferScalarFieldEnum | P2pTransferScalarFieldEnum[]
   }
 
   /**
@@ -4903,6 +4940,7 @@ export namespace Prisma {
     amount: number | null
     fromUserId: number | null
     toUserId: number | null
+    toMerchantId: number | null
   }
 
   export type P2pTransferSumAggregateOutputType = {
@@ -4910,6 +4948,7 @@ export namespace Prisma {
     amount: number | null
     fromUserId: number | null
     toUserId: number | null
+    toMerchantId: number | null
   }
 
   export type P2pTransferMinAggregateOutputType = {
@@ -4918,6 +4957,7 @@ export namespace Prisma {
     timestamp: Date | null
     fromUserId: number | null
     toUserId: number | null
+    toMerchantId: number | null
   }
 
   export type P2pTransferMaxAggregateOutputType = {
@@ -4926,6 +4966,7 @@ export namespace Prisma {
     timestamp: Date | null
     fromUserId: number | null
     toUserId: number | null
+    toMerchantId: number | null
   }
 
   export type P2pTransferCountAggregateOutputType = {
@@ -4934,6 +4975,7 @@ export namespace Prisma {
     timestamp: number
     fromUserId: number
     toUserId: number
+    toMerchantId: number
     _all: number
   }
 
@@ -4943,6 +4985,7 @@ export namespace Prisma {
     amount?: true
     fromUserId?: true
     toUserId?: true
+    toMerchantId?: true
   }
 
   export type P2pTransferSumAggregateInputType = {
@@ -4950,6 +4993,7 @@ export namespace Prisma {
     amount?: true
     fromUserId?: true
     toUserId?: true
+    toMerchantId?: true
   }
 
   export type P2pTransferMinAggregateInputType = {
@@ -4958,6 +5002,7 @@ export namespace Prisma {
     timestamp?: true
     fromUserId?: true
     toUserId?: true
+    toMerchantId?: true
   }
 
   export type P2pTransferMaxAggregateInputType = {
@@ -4966,6 +5011,7 @@ export namespace Prisma {
     timestamp?: true
     fromUserId?: true
     toUserId?: true
+    toMerchantId?: true
   }
 
   export type P2pTransferCountAggregateInputType = {
@@ -4974,6 +5020,7 @@ export namespace Prisma {
     timestamp?: true
     fromUserId?: true
     toUserId?: true
+    toMerchantId?: true
     _all?: true
   }
 
@@ -5068,7 +5115,8 @@ export namespace Prisma {
     amount: number
     timestamp: Date
     fromUserId: number
-    toUserId: number
+    toUserId: number | null
+    toMerchantId: number | null
     _count: P2pTransferCountAggregateOutputType | null
     _avg: P2pTransferAvgAggregateOutputType | null
     _sum: P2pTransferSumAggregateOutputType | null
@@ -5096,8 +5144,10 @@ export namespace Prisma {
     timestamp?: boolean
     fromUserId?: boolean
     toUserId?: boolean
+    toMerchantId?: boolean
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
   export type P2pTransferSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5106,8 +5156,10 @@ export namespace Prisma {
     timestamp?: boolean
     fromUserId?: boolean
     toUserId?: boolean
+    toMerchantId?: boolean
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
   export type P2pTransferSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5116,8 +5168,10 @@ export namespace Prisma {
     timestamp?: boolean
     fromUserId?: boolean
     toUserId?: boolean
+    toMerchantId?: boolean
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }, ExtArgs["result"]["p2pTransfer"]>
 
   export type P2pTransferSelectScalar = {
@@ -5126,34 +5180,40 @@ export namespace Prisma {
     timestamp?: boolean
     fromUserId?: boolean
     toUserId?: boolean
+    toMerchantId?: boolean
   }
 
-  export type P2pTransferOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "timestamp" | "fromUserId" | "toUserId", ExtArgs["result"]["p2pTransfer"]>
+  export type P2pTransferOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "timestamp" | "fromUserId" | "toUserId" | "toMerchantId", ExtArgs["result"]["p2pTransfer"]>
   export type P2pTransferInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }
   export type P2pTransferIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }
   export type P2pTransferIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     fromUser?: boolean | UserDefaultArgs<ExtArgs>
-    toUser?: boolean | UserDefaultArgs<ExtArgs>
+    toUser?: boolean | P2pTransfer$toUserArgs<ExtArgs>
+    toMerchant?: boolean | P2pTransfer$toMerchantArgs<ExtArgs>
   }
 
   export type $P2pTransferPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "P2pTransfer"
     objects: {
       fromUser: Prisma.$UserPayload<ExtArgs>
-      toUser: Prisma.$UserPayload<ExtArgs>
+      toUser: Prisma.$UserPayload<ExtArgs> | null
+      toMerchant: Prisma.$MerchantPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       amount: number
       timestamp: Date
       fromUserId: number
-      toUserId: number
+      toUserId: number | null
+      toMerchantId: number | null
     }, ExtArgs["result"]["p2pTransfer"]>
     composites: {}
   }
@@ -5549,7 +5609,8 @@ export namespace Prisma {
   export interface Prisma__P2pTransferClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     fromUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    toUser<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    toUser<T extends P2pTransfer$toUserArgs<ExtArgs> = {}>(args?: Subset<T, P2pTransfer$toUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    toMerchant<T extends P2pTransfer$toMerchantArgs<ExtArgs> = {}>(args?: Subset<T, P2pTransfer$toMerchantArgs<ExtArgs>>): Prisma__MerchantClient<$Result.GetResult<Prisma.$MerchantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5584,6 +5645,7 @@ export namespace Prisma {
     readonly timestamp: FieldRef<"P2pTransfer", 'DateTime'>
     readonly fromUserId: FieldRef<"P2pTransfer", 'Int'>
     readonly toUserId: FieldRef<"P2pTransfer", 'Int'>
+    readonly toMerchantId: FieldRef<"P2pTransfer", 'Int'>
   }
     
 
@@ -5977,6 +6039,44 @@ export namespace Prisma {
      * Limit how many P2pTransfers to delete.
      */
     limit?: number
+  }
+
+  /**
+   * P2pTransfer.toUser
+   */
+  export type P2pTransfer$toUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * P2pTransfer.toMerchant
+   */
+  export type P2pTransfer$toMerchantArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Merchant
+     */
+    select?: MerchantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Merchant
+     */
+    omit?: MerchantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MerchantInclude<ExtArgs> | null
+    where?: MerchantWhereInput
   }
 
   /**
@@ -8236,7 +8336,8 @@ export namespace Prisma {
     amount: 'amount',
     timestamp: 'timestamp',
     fromUserId: 'fromUserId',
-    toUserId: 'toUserId'
+    toUserId: 'toUserId',
+    toMerchantId: 'toMerchantId'
   };
 
   export type P2pTransferScalarFieldEnum = (typeof P2pTransferScalarFieldEnum)[keyof typeof P2pTransferScalarFieldEnum]
@@ -8460,6 +8561,7 @@ export namespace Prisma {
     upiId?: StringNullableFilter<"Merchant"> | string | null
     auth_type?: EnumAuthTypeFilter<"Merchant"> | $Enums.AuthType
     balances?: MerchantBalanceListRelationFilter
+    receivedTransfers?: P2pTransferListRelationFilter
   }
 
   export type MerchantOrderByWithRelationInput = {
@@ -8470,6 +8572,7 @@ export namespace Prisma {
     upiId?: SortOrderInput | SortOrder
     auth_type?: SortOrder
     balances?: MerchantBalanceOrderByRelationAggregateInput
+    receivedTransfers?: P2pTransferOrderByRelationAggregateInput
   }
 
   export type MerchantWhereUniqueInput = Prisma.AtLeast<{
@@ -8483,6 +8586,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"Merchant"> | string | null
     auth_type?: EnumAuthTypeFilter<"Merchant"> | $Enums.AuthType
     balances?: MerchantBalanceListRelationFilter
+    receivedTransfers?: P2pTransferListRelationFilter
   }, "id" | "email" | "number" | "upiId">
 
   export type MerchantOrderByWithAggregationInput = {
@@ -8586,9 +8690,11 @@ export namespace Prisma {
     amount?: IntFilter<"P2pTransfer"> | number
     timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
     fromUserId?: IntFilter<"P2pTransfer"> | number
-    toUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntNullableFilter<"P2pTransfer"> | number | null
+    toMerchantId?: IntNullableFilter<"P2pTransfer"> | number | null
     fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
+    toUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    toMerchant?: XOR<MerchantNullableScalarRelationFilter, MerchantWhereInput> | null
   }
 
   export type P2pTransferOrderByWithRelationInput = {
@@ -8596,9 +8702,11 @@ export namespace Prisma {
     amount?: SortOrder
     timestamp?: SortOrder
     fromUserId?: SortOrder
-    toUserId?: SortOrder
+    toUserId?: SortOrderInput | SortOrder
+    toMerchantId?: SortOrderInput | SortOrder
     fromUser?: UserOrderByWithRelationInput
     toUser?: UserOrderByWithRelationInput
+    toMerchant?: MerchantOrderByWithRelationInput
   }
 
   export type P2pTransferWhereUniqueInput = Prisma.AtLeast<{
@@ -8609,9 +8717,11 @@ export namespace Prisma {
     amount?: IntFilter<"P2pTransfer"> | number
     timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
     fromUserId?: IntFilter<"P2pTransfer"> | number
-    toUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntNullableFilter<"P2pTransfer"> | number | null
+    toMerchantId?: IntNullableFilter<"P2pTransfer"> | number | null
     fromUser?: XOR<UserScalarRelationFilter, UserWhereInput>
-    toUser?: XOR<UserScalarRelationFilter, UserWhereInput>
+    toUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    toMerchant?: XOR<MerchantNullableScalarRelationFilter, MerchantWhereInput> | null
   }, "id">
 
   export type P2pTransferOrderByWithAggregationInput = {
@@ -8619,7 +8729,8 @@ export namespace Prisma {
     amount?: SortOrder
     timestamp?: SortOrder
     fromUserId?: SortOrder
-    toUserId?: SortOrder
+    toUserId?: SortOrderInput | SortOrder
+    toMerchantId?: SortOrderInput | SortOrder
     _count?: P2pTransferCountOrderByAggregateInput
     _avg?: P2pTransferAvgOrderByAggregateInput
     _max?: P2pTransferMaxOrderByAggregateInput
@@ -8635,7 +8746,8 @@ export namespace Prisma {
     amount?: IntWithAggregatesFilter<"P2pTransfer"> | number
     timestamp?: DateTimeWithAggregatesFilter<"P2pTransfer"> | Date | string
     fromUserId?: IntWithAggregatesFilter<"P2pTransfer"> | number
-    toUserId?: IntWithAggregatesFilter<"P2pTransfer"> | number
+    toUserId?: IntNullableWithAggregatesFilter<"P2pTransfer"> | number | null
+    toMerchantId?: IntNullableWithAggregatesFilter<"P2pTransfer"> | number | null
   }
 
   export type UserBalanceWhereInput = {
@@ -8825,6 +8937,7 @@ export namespace Prisma {
     upiId?: string | null
     auth_type: $Enums.AuthType
     balances?: MerchantBalanceCreateNestedManyWithoutMerchantInput
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToMerchantInput
   }
 
   export type MerchantUncheckedCreateInput = {
@@ -8835,6 +8948,7 @@ export namespace Prisma {
     upiId?: string | null
     auth_type: $Enums.AuthType
     balances?: MerchantBalanceUncheckedCreateNestedManyWithoutMerchantInput
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToMerchantInput
   }
 
   export type MerchantUpdateInput = {
@@ -8844,6 +8958,7 @@ export namespace Prisma {
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
     balances?: MerchantBalanceUpdateManyWithoutMerchantNestedInput
+    receivedTransfers?: P2pTransferUpdateManyWithoutToMerchantNestedInput
   }
 
   export type MerchantUncheckedUpdateInput = {
@@ -8854,6 +8969,7 @@ export namespace Prisma {
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
     balances?: MerchantBalanceUncheckedUpdateManyWithoutMerchantNestedInput
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToMerchantNestedInput
   }
 
   export type MerchantCreateManyInput = {
@@ -8952,7 +9068,8 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUser: UserCreateNestedOneWithoutSentTransfersInput
-    toUser: UserCreateNestedOneWithoutReceivedTransfersInput
+    toUser?: UserCreateNestedOneWithoutReceivedTransfersInput
+    toMerchant?: MerchantCreateNestedOneWithoutReceivedTransfersInput
   }
 
   export type P2pTransferUncheckedCreateInput = {
@@ -8960,14 +9077,16 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUserId: number
-    toUserId: number
+    toUserId?: number | null
+    toMerchantId?: number | null
   }
 
   export type P2pTransferUpdateInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUser?: UserUpdateOneRequiredWithoutSentTransfersNestedInput
-    toUser?: UserUpdateOneRequiredWithoutReceivedTransfersNestedInput
+    toUser?: UserUpdateOneWithoutReceivedTransfersNestedInput
+    toMerchant?: MerchantUpdateOneWithoutReceivedTransfersNestedInput
   }
 
   export type P2pTransferUncheckedUpdateInput = {
@@ -8975,7 +9094,8 @@ export namespace Prisma {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUserId?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type P2pTransferCreateManyInput = {
@@ -8983,7 +9103,8 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUserId: number
-    toUserId: number
+    toUserId?: number | null
+    toMerchantId?: number | null
   }
 
   export type P2pTransferUpdateManyMutationInput = {
@@ -8996,7 +9117,8 @@ export namespace Prisma {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUserId?: IntFieldUpdateOperationsInput | number
-    toUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type UserBalanceCreateInput = {
@@ -9403,12 +9525,34 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type MerchantNullableScalarRelationFilter = {
+    is?: MerchantWhereInput | null
+    isNot?: MerchantWhereInput | null
+  }
+
   export type P2pTransferCountOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
     timestamp?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
+    toMerchantId?: SortOrder
   }
 
   export type P2pTransferAvgOrderByAggregateInput = {
@@ -9416,6 +9560,7 @@ export namespace Prisma {
     amount?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
+    toMerchantId?: SortOrder
   }
 
   export type P2pTransferMaxOrderByAggregateInput = {
@@ -9424,6 +9569,7 @@ export namespace Prisma {
     timestamp?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
+    toMerchantId?: SortOrder
   }
 
   export type P2pTransferMinOrderByAggregateInput = {
@@ -9432,6 +9578,7 @@ export namespace Prisma {
     timestamp?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
+    toMerchantId?: SortOrder
   }
 
   export type P2pTransferSumOrderByAggregateInput = {
@@ -9439,6 +9586,23 @@ export namespace Prisma {
     amount?: SortOrder
     fromUserId?: SortOrder
     toUserId?: SortOrder
+    toMerchantId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type UserBalanceCountOrderByAggregateInput = {
@@ -9707,11 +9871,25 @@ export namespace Prisma {
     connect?: MerchantBalanceWhereUniqueInput | MerchantBalanceWhereUniqueInput[]
   }
 
+  export type P2pTransferCreateNestedManyWithoutToMerchantInput = {
+    create?: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput> | P2pTransferCreateWithoutToMerchantInput[] | P2pTransferUncheckedCreateWithoutToMerchantInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToMerchantInput | P2pTransferCreateOrConnectWithoutToMerchantInput[]
+    createMany?: P2pTransferCreateManyToMerchantInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+  }
+
   export type MerchantBalanceUncheckedCreateNestedManyWithoutMerchantInput = {
     create?: XOR<MerchantBalanceCreateWithoutMerchantInput, MerchantBalanceUncheckedCreateWithoutMerchantInput> | MerchantBalanceCreateWithoutMerchantInput[] | MerchantBalanceUncheckedCreateWithoutMerchantInput[]
     connectOrCreate?: MerchantBalanceCreateOrConnectWithoutMerchantInput | MerchantBalanceCreateOrConnectWithoutMerchantInput[]
     createMany?: MerchantBalanceCreateManyMerchantInputEnvelope
     connect?: MerchantBalanceWhereUniqueInput | MerchantBalanceWhereUniqueInput[]
+  }
+
+  export type P2pTransferUncheckedCreateNestedManyWithoutToMerchantInput = {
+    create?: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput> | P2pTransferCreateWithoutToMerchantInput[] | P2pTransferUncheckedCreateWithoutToMerchantInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToMerchantInput | P2pTransferCreateOrConnectWithoutToMerchantInput[]
+    createMany?: P2pTransferCreateManyToMerchantInputEnvelope
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
   }
 
   export type EnumAuthTypeFieldUpdateOperationsInput = {
@@ -9732,6 +9910,20 @@ export namespace Prisma {
     deleteMany?: MerchantBalanceScalarWhereInput | MerchantBalanceScalarWhereInput[]
   }
 
+  export type P2pTransferUpdateManyWithoutToMerchantNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput> | P2pTransferCreateWithoutToMerchantInput[] | P2pTransferUncheckedCreateWithoutToMerchantInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToMerchantInput | P2pTransferCreateOrConnectWithoutToMerchantInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutToMerchantInput | P2pTransferUpsertWithWhereUniqueWithoutToMerchantInput[]
+    createMany?: P2pTransferCreateManyToMerchantInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutToMerchantInput | P2pTransferUpdateWithWhereUniqueWithoutToMerchantInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutToMerchantInput | P2pTransferUpdateManyWithWhereWithoutToMerchantInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
+  }
+
   export type MerchantBalanceUncheckedUpdateManyWithoutMerchantNestedInput = {
     create?: XOR<MerchantBalanceCreateWithoutMerchantInput, MerchantBalanceUncheckedCreateWithoutMerchantInput> | MerchantBalanceCreateWithoutMerchantInput[] | MerchantBalanceUncheckedCreateWithoutMerchantInput[]
     connectOrCreate?: MerchantBalanceCreateOrConnectWithoutMerchantInput | MerchantBalanceCreateOrConnectWithoutMerchantInput[]
@@ -9744,6 +9936,20 @@ export namespace Prisma {
     update?: MerchantBalanceUpdateWithWhereUniqueWithoutMerchantInput | MerchantBalanceUpdateWithWhereUniqueWithoutMerchantInput[]
     updateMany?: MerchantBalanceUpdateManyWithWhereWithoutMerchantInput | MerchantBalanceUpdateManyWithWhereWithoutMerchantInput[]
     deleteMany?: MerchantBalanceScalarWhereInput | MerchantBalanceScalarWhereInput[]
+  }
+
+  export type P2pTransferUncheckedUpdateManyWithoutToMerchantNestedInput = {
+    create?: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput> | P2pTransferCreateWithoutToMerchantInput[] | P2pTransferUncheckedCreateWithoutToMerchantInput[]
+    connectOrCreate?: P2pTransferCreateOrConnectWithoutToMerchantInput | P2pTransferCreateOrConnectWithoutToMerchantInput[]
+    upsert?: P2pTransferUpsertWithWhereUniqueWithoutToMerchantInput | P2pTransferUpsertWithWhereUniqueWithoutToMerchantInput[]
+    createMany?: P2pTransferCreateManyToMerchantInputEnvelope
+    set?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    disconnect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    delete?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    connect?: P2pTransferWhereUniqueInput | P2pTransferWhereUniqueInput[]
+    update?: P2pTransferUpdateWithWhereUniqueWithoutToMerchantInput | P2pTransferUpdateWithWhereUniqueWithoutToMerchantInput[]
+    updateMany?: P2pTransferUpdateManyWithWhereWithoutToMerchantInput | P2pTransferUpdateManyWithWhereWithoutToMerchantInput[]
+    deleteMany?: P2pTransferScalarWhereInput | P2pTransferScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutOnRampTransactionInput = {
@@ -9780,6 +9986,12 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
+  export type MerchantCreateNestedOneWithoutReceivedTransfersInput = {
+    create?: XOR<MerchantCreateWithoutReceivedTransfersInput, MerchantUncheckedCreateWithoutReceivedTransfersInput>
+    connectOrCreate?: MerchantCreateOrConnectWithoutReceivedTransfersInput
+    connect?: MerchantWhereUniqueInput
+  }
+
   export type UserUpdateOneRequiredWithoutSentTransfersNestedInput = {
     create?: XOR<UserCreateWithoutSentTransfersInput, UserUncheckedCreateWithoutSentTransfersInput>
     connectOrCreate?: UserCreateOrConnectWithoutSentTransfersInput
@@ -9788,12 +10000,32 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSentTransfersInput, UserUpdateWithoutSentTransfersInput>, UserUncheckedUpdateWithoutSentTransfersInput>
   }
 
-  export type UserUpdateOneRequiredWithoutReceivedTransfersNestedInput = {
+  export type UserUpdateOneWithoutReceivedTransfersNestedInput = {
     create?: XOR<UserCreateWithoutReceivedTransfersInput, UserUncheckedCreateWithoutReceivedTransfersInput>
     connectOrCreate?: UserCreateOrConnectWithoutReceivedTransfersInput
     upsert?: UserUpsertWithoutReceivedTransfersInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReceivedTransfersInput, UserUpdateWithoutReceivedTransfersInput>, UserUncheckedUpdateWithoutReceivedTransfersInput>
+  }
+
+  export type MerchantUpdateOneWithoutReceivedTransfersNestedInput = {
+    create?: XOR<MerchantCreateWithoutReceivedTransfersInput, MerchantUncheckedCreateWithoutReceivedTransfersInput>
+    connectOrCreate?: MerchantCreateOrConnectWithoutReceivedTransfersInput
+    upsert?: MerchantUpsertWithoutReceivedTransfersInput
+    disconnect?: MerchantWhereInput | boolean
+    delete?: MerchantWhereInput | boolean
+    connect?: MerchantWhereUniqueInput
+    update?: XOR<XOR<MerchantUpdateToOneWithWhereWithoutReceivedTransfersInput, MerchantUpdateWithoutReceivedTransfersInput>, MerchantUncheckedUpdateWithoutReceivedTransfersInput>
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UserCreateNestedOneWithoutBalancesInput = {
@@ -9994,6 +10226,33 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type OnRampTransactionCreateWithoutUserInput = {
     status: $Enums.OnRampStatus
     token: string
@@ -10045,14 +10304,16 @@ export namespace Prisma {
   export type P2pTransferCreateWithoutFromUserInput = {
     amount: number
     timestamp: Date | string
-    toUser: UserCreateNestedOneWithoutReceivedTransfersInput
+    toUser?: UserCreateNestedOneWithoutReceivedTransfersInput
+    toMerchant?: MerchantCreateNestedOneWithoutReceivedTransfersInput
   }
 
   export type P2pTransferUncheckedCreateWithoutFromUserInput = {
     id?: number
     amount: number
     timestamp: Date | string
-    toUserId: number
+    toUserId?: number | null
+    toMerchantId?: number | null
   }
 
   export type P2pTransferCreateOrConnectWithoutFromUserInput = {
@@ -10069,6 +10330,7 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUser: UserCreateNestedOneWithoutSentTransfersInput
+    toMerchant?: MerchantCreateNestedOneWithoutReceivedTransfersInput
   }
 
   export type P2pTransferUncheckedCreateWithoutToUserInput = {
@@ -10076,6 +10338,7 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUserId: number
+    toMerchantId?: number | null
   }
 
   export type P2pTransferCreateOrConnectWithoutToUserInput = {
@@ -10167,7 +10430,8 @@ export namespace Prisma {
     amount?: IntFilter<"P2pTransfer"> | number
     timestamp?: DateTimeFilter<"P2pTransfer"> | Date | string
     fromUserId?: IntFilter<"P2pTransfer"> | number
-    toUserId?: IntFilter<"P2pTransfer"> | number
+    toUserId?: IntNullableFilter<"P2pTransfer"> | number | null
+    toMerchantId?: IntNullableFilter<"P2pTransfer"> | number | null
   }
 
   export type P2pTransferUpsertWithWhereUniqueWithoutToUserInput = {
@@ -10207,6 +10471,31 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type P2pTransferCreateWithoutToMerchantInput = {
+    amount: number
+    timestamp: Date | string
+    fromUser: UserCreateNestedOneWithoutSentTransfersInput
+    toUser?: UserCreateNestedOneWithoutReceivedTransfersInput
+  }
+
+  export type P2pTransferUncheckedCreateWithoutToMerchantInput = {
+    id?: number
+    amount: number
+    timestamp: Date | string
+    fromUserId: number
+    toUserId?: number | null
+  }
+
+  export type P2pTransferCreateOrConnectWithoutToMerchantInput = {
+    where: P2pTransferWhereUniqueInput
+    create: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput>
+  }
+
+  export type P2pTransferCreateManyToMerchantInputEnvelope = {
+    data: P2pTransferCreateManyToMerchantInput | P2pTransferCreateManyToMerchantInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MerchantBalanceUpsertWithWhereUniqueWithoutMerchantInput = {
     where: MerchantBalanceWhereUniqueInput
     update: XOR<MerchantBalanceUpdateWithoutMerchantInput, MerchantBalanceUncheckedUpdateWithoutMerchantInput>
@@ -10231,6 +10520,22 @@ export namespace Prisma {
     merchantId?: IntFilter<"MerchantBalance"> | number
     amount?: IntFilter<"MerchantBalance"> | number
     locked?: IntFilter<"MerchantBalance"> | number
+  }
+
+  export type P2pTransferUpsertWithWhereUniqueWithoutToMerchantInput = {
+    where: P2pTransferWhereUniqueInput
+    update: XOR<P2pTransferUpdateWithoutToMerchantInput, P2pTransferUncheckedUpdateWithoutToMerchantInput>
+    create: XOR<P2pTransferCreateWithoutToMerchantInput, P2pTransferUncheckedCreateWithoutToMerchantInput>
+  }
+
+  export type P2pTransferUpdateWithWhereUniqueWithoutToMerchantInput = {
+    where: P2pTransferWhereUniqueInput
+    data: XOR<P2pTransferUpdateWithoutToMerchantInput, P2pTransferUncheckedUpdateWithoutToMerchantInput>
+  }
+
+  export type P2pTransferUpdateManyWithWhereWithoutToMerchantInput = {
+    where: P2pTransferScalarWhereInput
+    data: XOR<P2pTransferUpdateManyMutationInput, P2pTransferUncheckedUpdateManyWithoutToMerchantInput>
   }
 
   export type UserCreateWithoutOnRampTransactionInput = {
@@ -10351,6 +10656,30 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutReceivedTransfersInput, UserUncheckedCreateWithoutReceivedTransfersInput>
   }
 
+  export type MerchantCreateWithoutReceivedTransfersInput = {
+    email: string
+    name?: string | null
+    number?: string | null
+    upiId?: string | null
+    auth_type: $Enums.AuthType
+    balances?: MerchantBalanceCreateNestedManyWithoutMerchantInput
+  }
+
+  export type MerchantUncheckedCreateWithoutReceivedTransfersInput = {
+    id?: number
+    email: string
+    name?: string | null
+    number?: string | null
+    upiId?: string | null
+    auth_type: $Enums.AuthType
+    balances?: MerchantBalanceUncheckedCreateNestedManyWithoutMerchantInput
+  }
+
+  export type MerchantCreateOrConnectWithoutReceivedTransfersInput = {
+    where: MerchantWhereUniqueInput
+    create: XOR<MerchantCreateWithoutReceivedTransfersInput, MerchantUncheckedCreateWithoutReceivedTransfersInput>
+  }
+
   export type UserUpsertWithoutSentTransfersInput = {
     update: XOR<UserUpdateWithoutSentTransfersInput, UserUncheckedUpdateWithoutSentTransfersInput>
     create: XOR<UserCreateWithoutSentTransfersInput, UserUncheckedCreateWithoutSentTransfersInput>
@@ -10417,6 +10746,36 @@ export namespace Prisma {
     OnRampTransaction?: OnRampTransactionUncheckedUpdateManyWithoutUserNestedInput
     balances?: UserBalanceUncheckedUpdateManyWithoutUserNestedInput
     sentTransfers?: P2pTransferUncheckedUpdateManyWithoutFromUserNestedInput
+  }
+
+  export type MerchantUpsertWithoutReceivedTransfersInput = {
+    update: XOR<MerchantUpdateWithoutReceivedTransfersInput, MerchantUncheckedUpdateWithoutReceivedTransfersInput>
+    create: XOR<MerchantCreateWithoutReceivedTransfersInput, MerchantUncheckedCreateWithoutReceivedTransfersInput>
+    where?: MerchantWhereInput
+  }
+
+  export type MerchantUpdateToOneWithWhereWithoutReceivedTransfersInput = {
+    where?: MerchantWhereInput
+    data: XOR<MerchantUpdateWithoutReceivedTransfersInput, MerchantUncheckedUpdateWithoutReceivedTransfersInput>
+  }
+
+  export type MerchantUpdateWithoutReceivedTransfersInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
+    balances?: MerchantBalanceUpdateManyWithoutMerchantNestedInput
+  }
+
+  export type MerchantUncheckedUpdateWithoutReceivedTransfersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    number?: NullableStringFieldUpdateOperationsInput | string | null
+    upiId?: NullableStringFieldUpdateOperationsInput | string | null
+    auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
+    balances?: MerchantBalanceUncheckedUpdateManyWithoutMerchantNestedInput
   }
 
   export type UserCreateWithoutBalancesInput = {
@@ -10487,6 +10846,7 @@ export namespace Prisma {
     number?: string | null
     upiId?: string | null
     auth_type: $Enums.AuthType
+    receivedTransfers?: P2pTransferCreateNestedManyWithoutToMerchantInput
   }
 
   export type MerchantUncheckedCreateWithoutBalancesInput = {
@@ -10496,6 +10856,7 @@ export namespace Prisma {
     number?: string | null
     upiId?: string | null
     auth_type: $Enums.AuthType
+    receivedTransfers?: P2pTransferUncheckedCreateNestedManyWithoutToMerchantInput
   }
 
   export type MerchantCreateOrConnectWithoutBalancesInput = {
@@ -10520,6 +10881,7 @@ export namespace Prisma {
     number?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
+    receivedTransfers?: P2pTransferUpdateManyWithoutToMerchantNestedInput
   }
 
   export type MerchantUncheckedUpdateWithoutBalancesInput = {
@@ -10529,6 +10891,7 @@ export namespace Prisma {
     number?: NullableStringFieldUpdateOperationsInput | string | null
     upiId?: NullableStringFieldUpdateOperationsInput | string | null
     auth_type?: EnumAuthTypeFieldUpdateOperationsInput | $Enums.AuthType
+    receivedTransfers?: P2pTransferUncheckedUpdateManyWithoutToMerchantNestedInput
   }
 
   export type OnRampTransactionCreateManyUserInput = {
@@ -10550,7 +10913,8 @@ export namespace Prisma {
     id?: number
     amount: number
     timestamp: Date | string
-    toUserId: number
+    toUserId?: number | null
+    toMerchantId?: number | null
   }
 
   export type P2pTransferCreateManyToUserInput = {
@@ -10558,6 +10922,7 @@ export namespace Prisma {
     amount: number
     timestamp: Date | string
     fromUserId: number
+    toMerchantId?: number | null
   }
 
   export type OnRampTransactionUpdateWithoutUserInput = {
@@ -10606,27 +10971,31 @@ export namespace Prisma {
   export type P2pTransferUpdateWithoutFromUserInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    toUser?: UserUpdateOneRequiredWithoutReceivedTransfersNestedInput
+    toUser?: UserUpdateOneWithoutReceivedTransfersNestedInput
+    toMerchant?: MerchantUpdateOneWithoutReceivedTransfersNestedInput
   }
 
   export type P2pTransferUncheckedUpdateWithoutFromUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    toUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type P2pTransferUncheckedUpdateManyWithoutFromUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    toUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type P2pTransferUpdateWithoutToUserInput = {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUser?: UserUpdateOneRequiredWithoutSentTransfersNestedInput
+    toMerchant?: MerchantUpdateOneWithoutReceivedTransfersNestedInput
   }
 
   export type P2pTransferUncheckedUpdateWithoutToUserInput = {
@@ -10634,6 +11003,7 @@ export namespace Prisma {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUserId?: IntFieldUpdateOperationsInput | number
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type P2pTransferUncheckedUpdateManyWithoutToUserInput = {
@@ -10641,12 +11011,21 @@ export namespace Prisma {
     amount?: IntFieldUpdateOperationsInput | number
     timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     fromUserId?: IntFieldUpdateOperationsInput | number
+    toMerchantId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type MerchantBalanceCreateManyMerchantInput = {
     id?: number
     amount?: number
     locked?: number
+  }
+
+  export type P2pTransferCreateManyToMerchantInput = {
+    id?: number
+    amount: number
+    timestamp: Date | string
+    fromUserId: number
+    toUserId?: number | null
   }
 
   export type MerchantBalanceUpdateWithoutMerchantInput = {
@@ -10664,6 +11043,29 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     amount?: IntFieldUpdateOperationsInput | number
     locked?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type P2pTransferUpdateWithoutToMerchantInput = {
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    fromUser?: UserUpdateOneRequiredWithoutSentTransfersNestedInput
+    toUser?: UserUpdateOneWithoutReceivedTransfersNestedInput
+  }
+
+  export type P2pTransferUncheckedUpdateWithoutToMerchantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    fromUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type P2pTransferUncheckedUpdateManyWithoutToMerchantInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    fromUserId?: IntFieldUpdateOperationsInput | number
+    toUserId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

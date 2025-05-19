@@ -47,7 +47,11 @@ const transactions = [
 ];
 
 export default function Page() {
-  const balanceData = {
+  const balance = {
+    amount: 120000, // ₹1200 in paisa
+  };
+
+  const doughnutData = {
     labels: ["Balance", "Locked"],
     datasets: [
       {
@@ -72,55 +76,77 @@ export default function Page() {
     ],
   };
 
+  const monthlySpendingData = {
+    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+    datasets: [
+      {
+        label: "Monthly Spending",
+        data: [1500, 1200, 1800, 900],
+        fill: false,
+        borderColor: "#f59e0b",
+        tension: 0.3,
+      },
+    ],
+  };
+
   return (
     <div className="p-6 space-y-8">
-      <h1 className="text-2xl font-bold text-gray-800">Wallet Overview</h1>
+      <h1 className="text-2xl font-bold text-[#6a51a6] border-b">
+        Wallet Overview
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 min-w-full">
-        <div className="bg-white shadow-md rounded-xl p-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        {/* Balance Doughnut */}
+        <div className="bg-white shadow-md rounded-xl p-4 w-full">
           <h2 className="text-lg font-semibold mb-2">Balance Breakdown</h2>
-          <Doughnut data={balanceData} />
+          <Doughnut data={doughnutData} />
           <p className="text-center text-xl mt-4 text-green-600 font-medium">
-            ₹1200 Available
+            ₹{balance.amount / 100} Available
           </p>
         </div>
 
-        <div className="bg-white shadow-md rounded-xl p-4">
-          <h2 className="text-lg font-semibold text-center mb-2">Weekly Spending</h2>
+        {/* Line Charts */}
+        <div className="bg-white shadow-md rounded-xl p-4 w-full">
+          <h2 className="text-lg font-semibold text-center mb-2">
+            Weekly Spending
+          </h2>
           <Line data={spendingData} />
-          <h2 className="text-lg  text-center font-semibold mb-2">Monthly Spending</h2>
-          <Line data={spendingData} />
+          <h2 className="text-lg text-center font-semibold mt-6 mb-2">
+            Monthly Spending
+          </h2>
+          <Line data={monthlySpendingData} />
         </div>
-      </div>
 
-      <div className="bg-white shadow-md rounded-xl p-4 mt-6">
-        <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
-        <ul className="space-y-4">
-          {transactions.map((tx) => (
-            <li key={tx.id} className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <span
-                  className={`text-2xl ${
-                    tx.type === "received" ? "text-green-500" : "text-red-500"
+        {/* Transactions List */}
+        <div className="bg-white shadow-md rounded-xl p-4 w-full">
+          <h2 className="text-lg font-semibold mb-4">Recent Transactions</h2>
+          <ul className="space-y-4">
+            {transactions.map((tx) => (
+              <li key={tx.id} className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <span
+                    className={`text-2xl ${
+                      tx.type === "received" ? "text-green-500" : "text-red-500"
+                    }`}
+                  >
+                    {tx.type === "received" ? "📥" : "📤"}
+                  </span>
+                  <div>
+                    <p className="font-medium">{tx.description}</p>
+                    <p className="text-sm text-gray-500">{tx.date}</p>
+                  </div>
+                </div>
+                <p
+                  className={`font-semibold ${
+                    tx.type === "received" ? "text-green-600" : "text-red-600"
                   }`}
                 >
-                  {tx.type === "received" ? "📥" : "📤"}
-                </span>
-                <div>
-                  <p className="font-medium">{tx.description}</p>
-                  <p className="text-sm text-gray-500">{tx.date}</p>
-                </div>
-              </div>
-              <p
-                className={`font-semibold ${
-                  tx.type === "received" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {tx.type === "received" ? "+" : "-"}₹{tx.amount}
-              </p>
-            </li>
-          ))}
-        </ul>
+                  {tx.type === "received" ? "+" : "-"}₹{tx.amount}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
