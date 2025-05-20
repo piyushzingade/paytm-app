@@ -1,22 +1,24 @@
+// next-auth.d.ts
 import NextAuth from "next-auth";
 
 declare module "next-auth" {
   interface Session {
-    merchant: {
+    merchant?: {
       id: string;
-      email: string;
-      image: string;
       name: string;
-      upi : string
+      email: string;
+      image?: string;
+      upi?: string;
     };
   }
 
-  interface JWT {
+  interface User {
     id?: string;
+  }
+
+  interface JWT {
     email?: string;
-    picture?: string;
     name?: string;
-    upi? : string
-    image?: string;
+    picture?: string;
   }
 }

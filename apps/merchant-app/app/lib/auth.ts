@@ -5,25 +5,18 @@ import prisma from "@repo/db/client";
 
 export const auth: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
-  
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     }),
-    GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID ?? "",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET ?? "",
-    }),
   ],
-
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
   },
-
   jwt: {
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -43,15 +36,21 @@ export const auth: AuthOptions = {
 
       if (merchant) {
         session.merchant = {
-          id: merchant.id.toString(), // or keep as number if your app prefers
+          id: merchant.id.toString(),
           name: merchant.name || "",
           email: merchant.email,
-          image: token.picture || "", // image from Google/GitHub
-          upi: merchant.upiId || "", // correctly referencing your schema
+          image: token.picture || "",
+          upi: merchant.upiId || "",
         };
       }
 
       return session;
     },
   },
-};  
+  // 👇 Add this
+  pages: {
+    signIn: "/dashboard", // App router route
+    signOut: "/login",
+    newUser: "/dashboard", // ✅ This is where users are sent after first sign-in
+  },
+};

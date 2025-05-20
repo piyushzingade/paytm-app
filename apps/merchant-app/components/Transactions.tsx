@@ -23,7 +23,7 @@ export default function TransactionsChart({
   //   const [error, setError] = useState<string | null>(null);
 
   if (loading) {
-    return <div className="">Loading, please wait a moment...</div>;
+    return <div className="h-screen">Loading, please wait a moment...</div>;
   }
 
   return (
@@ -41,7 +41,7 @@ export default function TransactionsChart({
                 <span className="text-2xl">📊</span>
                 <div>
                   <p className="text-lg font-medium text-gray-800">
-                    ₹{tx.amount} from UserId {tx.fromUserId} 
+                    ₹{tx.amount} from UserId {tx.fromUserId}
                   </p>
                   <p className="text-sm text-gray-500">
                     {new Date(tx.date).toLocaleString()}

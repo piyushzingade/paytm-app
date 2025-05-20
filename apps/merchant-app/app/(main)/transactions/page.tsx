@@ -1,4 +1,5 @@
 
+import RequireAuth from "../../../components/RequireAuth";
 import TransactionsChart from "../../../components/Transactions";
 import { getAllTransactions } from "../../lib/actions/getAllTransactions";
 
@@ -8,5 +9,9 @@ import { getAllTransactions } from "../../lib/actions/getAllTransactions";
 export default async function page() {
   const transaction = await getAllTransactions();
 
-  return <TransactionsChart initialTransaction={transaction} />;
+  return (
+    <RequireAuth>
+      <TransactionsChart initialTransaction={transaction} />
+    </RequireAuth>
+  );
 }

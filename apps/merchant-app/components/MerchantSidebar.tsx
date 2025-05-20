@@ -3,13 +3,11 @@ import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import { SidebarItem } from "./SidebarItem";
 import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/Avatar";
+import RequireAuth from "./RequireAuth";
 
 export default function MerchantSidebar() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
-  if (status === "loading") {
-    return <div className="p-4">Loading...</div>;
-  }
 
   const merchant = session?.merchant;
 
@@ -23,7 +21,7 @@ export default function MerchantSidebar() {
       </div>
 
       <nav className="flex-1 space-y-1 px-2">
-        <SidebarItem href="/home" icon={<HomeIcon />} title="Home" />
+        <SidebarItem href="/dashboard" icon={<HomeIcon />} title="Dashoboard" />
         <SidebarItem
           href="/transactions"
           icon={<TransactionsIcon />}
@@ -31,32 +29,33 @@ export default function MerchantSidebar() {
         />
         <SidebarItem href="/profile" icon={<ProfileIcon />} title="Profile" />
       </nav>
-
-      <div className="p-4 border-t">
-        <div className="flex items-center space-x-3">
-          <Avatar className="rounded-2xl text-blue-700 capitalize">
-            <AvatarImage src={merchant?.image ?? "/avatar.png"} alt="User" />
-            <AvatarFallback className="rounded-2xl border">
-              {merchant?.name?.[0] ?? "U"}
-            </AvatarFallback>
-          </Avatar>
-          <div className="flex-1 min-w-0">
-            <p className="font-medium text-sm text-black capitalize truncate">
-              {merchant?.name ?? "User"}
-            </p>
-            <p className="text-xs truncate">
-              {merchant?.upi ?? "upi"}
-            </p>
+      
+        <div className="p-4 border-t">
+          <div className="flex items-center space-x-3">
+            <Avatar className="rounded-2xl text-blue-700 capitalize">
+              <AvatarImage src={merchant?.image ?? "/avatar.png"} alt="User" />
+              <AvatarFallback className="rounded-2xl border">
+                {merchant?.name?.[0] ?? "U"}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium text-sm text-black capitalize truncate">
+                {merchant?.name ?? "User"}
+              </p>
+              <p className="text-xs truncate">
+                {merchant?.upi ?? "upi"}
+              </p>
+            </div>
           </div>
+          <button
+            className="mt-2 w-full flex items-center justify-start mb-3"
+            onClick={() => signOut({ callbackUrl: "/login" })}
+          >
+            <LogOutIcon />
+            <span className="ml-2">Logout</span>
+          </button>
         </div>
-        <button
-          className="mt-2 w-full flex items-center justify-start mb-3"
-          onClick={() => signOut({ callbackUrl: "/api/auth/signin" })}
-        >
-          <LogOutIcon />
-          <span className="ml-2">Logout</span>
-        </button>
-      </div>
+      
     </aside>
   );
 }

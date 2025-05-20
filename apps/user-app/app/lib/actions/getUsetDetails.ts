@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "../authOption"
 import prisma from "@repo/db/client";
+import { BalanceCard } from "../../../components/BalanceCard";
 
 
 export const getUserDetails = async () => {
@@ -19,10 +20,10 @@ export const getUserDetails = async () => {
         return null;
     }
     return {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        number: user.number,
-        password : user.password,
-    }
+      id: user.id.toString(),
+      name: user.name,
+      email: user.email,
+      number: user.number,
+    };
+      
 }
