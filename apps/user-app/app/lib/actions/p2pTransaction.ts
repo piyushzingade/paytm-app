@@ -3,7 +3,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../authOption";
 import prisma from "@repo/db/client";
-// import { z } from "zod";
 
 export async function p2pTransfer(
   to: string,
@@ -19,19 +18,22 @@ export async function p2pTransfer(
     };
   }
 
-  const toUser = await prisma.user.findFirst({
-    where: { number: to },
-  });
+  // Find both user and merchant with the same number
+  const [toUser, toMerchant] = await Promise.all([
+    prisma.user.findFirst({ where: { number: to } }),
+    prisma.merchant.findFirst({ where: { number: to } }),
+  ]);
 
-  if (!toUser) {
+  if (!toUser && !toMerchant) {
     return {
       success: false,
-      message: "Recipient user not found.",
+      message: "Recipient user or merchant not found.",
     };
   }
 
   try {
     await prisma.$transaction(async (tx) => {
+      // Lock sender's balance row
       await tx.$queryRaw`SELECT * FROM "UserBalance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
 
       const fromBalance = await tx.userBalance.findUnique({
@@ -42,20 +44,60 @@ export async function p2pTransfer(
         throw new Error("Insufficient balance");
       }
 
+      // Deduct from sender
       await tx.userBalance.update({
         where: { userId: Number(from) },
         data: { amount: { decrement: amount } },
       });
 
-      await tx.userBalance.update({
-        where: { userId: toUser.id },
-        data: { amount: { increment: amount } },
-      });
+      // Credit to user (create balance if needed)
+      if (toUser) {
+        let toUserBalance = await tx.userBalance.findUnique({
+          where: { userId: toUser.id },
+        });
 
+        if (!toUserBalance) {
+          await tx.userBalance.create({
+            data: {
+              userId: toUser.id,
+              amount: amount,
+            },
+          });
+        } else {
+          await tx.userBalance.update({
+            where: { userId: toUser.id },
+            data: { amount: { increment: amount } },
+          });
+        }
+      }
+
+      // Credit to merchant (create balance if needed)
+      if (toMerchant) {
+        let toMerchantBalance = await tx.merchantBalance.findUnique({
+          where: { merchantId: toMerchant.id },
+        });
+
+        if (!toMerchantBalance) {
+          await tx.merchantBalance.create({
+            data: {
+              merchantId: toMerchant.id,
+              amount: amount,
+            },
+          });
+        } else {
+          await tx.merchantBalance.update({
+            where: { merchantId: toMerchant.id },
+            data: { amount: { increment: amount } },
+          });
+        }
+      }
+
+      // Create transaction record
       await tx.p2pTransfer.create({
         data: {
           fromUserId: Number(from),
-          toUserId: toUser.id,
+          toUserId: toUser ? toUser.id : null,
+          toMerchantId: toMerchant ? toMerchant.id : null,
           amount,
           timestamp: new Date(),
         },

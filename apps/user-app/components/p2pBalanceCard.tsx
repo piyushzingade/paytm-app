@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@repo/ui/card";
+import { useState } from "react";
 
 export const P2pBalanceCard = ({
   transactions,
@@ -10,13 +11,13 @@ export const P2pBalanceCard = ({
     amount: number;
     date: Date;
     toUser: number | null;
+    toMerchant: number | null;
   }[];
 }) => {
+  const [isUser, setIsUser] = useState(true);
+
   return (
     <div className="w-full">
-      {/* <h2 className="text-xl font-semibold mb-4 text-center">
-        Your P2P Transfers
-      </h2> */}
       <Card title={<div className="text-center">Transaction History</div>}>
         <div className="p-4 space-y-4">
           {transactions.length === 0 ? (
@@ -35,10 +36,18 @@ export const P2pBalanceCard = ({
                   <span className="font-semibold">Date: </span>
                   {new Date(transaction.date).toDateString()}
                 </div>
-                <div className="text-sm text-gray-700">
-                  <span className="font-semibold">To User ID: </span>
-                  {transaction.toUser}
-                </div>
+                {transaction.toUser !== null && (
+                  <div className="text-sm text-gray-700">
+                    <span className="font-semibold">To User ID: </span>
+                    {transaction.toUser}
+                  </div>
+                )}
+                {transaction.toMerchant !== null && (
+                  <div className="text-sm text-gray-700">
+                    <span className="font-semibold">To Merchant ID: </span>
+                    {transaction.toMerchant}
+                  </div>
+                )}
               </div>
             ))
           )}

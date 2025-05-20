@@ -23,6 +23,7 @@ export const getUserTransactions = async () => {
     amount: t.amount,
     date: t.timestamp,
     toUser: t.toUserId,
+    toMerchant: t.toMerchantId,
   }));
 };
 

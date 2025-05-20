@@ -1,7 +1,12 @@
 
+import TransactionsChart from "../../../components/Transactions";
+import { getAllTransactions } from "../../lib/actions/getAllTransactions";
 
-export default function page() {
-  return (
-    <div> </div>
-  )
+
+
+
+export default async function page() {
+  const transaction = await getAllTransactions();
+
+  return <TransactionsChart initialTransaction={transaction} />;
 }

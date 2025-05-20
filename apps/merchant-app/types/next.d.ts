@@ -17,5 +17,6 @@ declare module "next-auth" {
     picture?: string;
     name?: string;
     upi? : string
+    image?: string;
   }
 }
