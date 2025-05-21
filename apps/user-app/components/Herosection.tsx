@@ -10,21 +10,19 @@ export default async function HeroSection() {
   const username = session?.user?.name || "User";
 
   if (!session?.user.id) {
-    return <div className="w-full pt-4 space-y-4">Please log in to see your wallet overview.
+    return <div className="w-screen pt-4 space-y-4">Please log in to see your wallet overview.
       <div className="">
-        <Button  className="w-full" onClick={() => window.location.href = "/login"}/>
+        <Button  className="w-full" onClick={() => window.location.href = "/signin"}/>
           Login
       </div>
     </div>;
   }
 
   return (
-    <div className="w-full pt-4 space-y-4">
+    <div className="w-full h-full ">
       <Greeting username={username} />
-      <div className="flex items-center justify-between">
       
         <WalletOverview  />
-      </div>
     </div>
   );
 }

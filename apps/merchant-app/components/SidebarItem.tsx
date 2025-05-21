@@ -1,12 +1,14 @@
 "use client";
+
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import clsx from "clsx";
 
 type SidebarItemProps = {
   href?: string;
   icon?: React.ReactNode;
   title: string;
   onClick?: () => void;
+  collapsed?: boolean;
 };
 
 export const SidebarItem = ({
@@ -14,6 +16,7 @@ export const SidebarItem = ({
   title,
   icon,
   onClick,
+  collapsed = false,
 }: SidebarItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -29,13 +32,22 @@ export const SidebarItem = ({
 
   return (
     <div
-      className={`hover:bg-slate-50 flex rounded-xl cursor-pointer p-2 pl-2`}
       onClick={handleClick}
+      className={clsx(
+        "flex items-center cursor-pointer rounded-xl px-3 py-2 transition-colors duration-200 group",
+        selected
+          ? "bg-slate-100 font-semibold text-[#6a51a6]"
+          : "hover:bg-slate-50 text-slate-700"
+      )}
     >
-      <div className="pr-2">{icon}</div>
-      <div className="text-md font-medium text-slate-700 capitalize">
-        {title}
+      <div className={clsx("text-xl", collapsed ? "mx-auto" : "mr-3")}>
+        {icon}
       </div>
+      {!collapsed && (
+        <span className="text-md capitalize transition-opacity duration-200">
+          {title}
+        </span>
+      )}
     </div>
   );
 };

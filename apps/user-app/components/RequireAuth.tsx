@@ -23,7 +23,7 @@ export default function RequireAuth({
         </p>
         <Button
           className="border border-slate-500 text-slate-700 bg-transparent p-2 px-10 rounded-xl hover:text-white hover:bg-[#6a51a6] "
-          onClick={() => router.push("/login")}
+          onClick={() => router.push("/signin")}
         >
           Go to Login
         </Button>

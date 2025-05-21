@@ -1,74 +1,124 @@
 "use client";
+
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@repo/ui/Avatar";
 import { SidebarItem } from "./SidebarItem";
-import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/Avatar";
-import RequireAuth from "./RequireAuth";
 
-export default function MerchantSidebar() {
+export default function MerchantSidebar({
+  collapsed,
+  setCollapsed,
+}: {
+  collapsed: boolean;
+  setCollapsed: (value: boolean) => void;
+}) {
   const { data: session } = useSession();
-
-
   const merchant = session?.merchant;
 
   return (
-    <aside className="w-64 bg-background h-full flex flex-col justify-between">
-      <div className="pl-3 pt-3 pb-6">
-        <div className="flex items-center space-x-3">
-          <Image src="/logo.png" alt="Wallet Icon" width={42} height={42} />
-          <span className="text-2xl font-bold text-black">Walleti</span>
+    <aside
+      className={`${
+        collapsed ? "w-16" : "w-64"
+      } transition-all duration-300 flex flex-col justify-between bg-white h-screen `}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-4">
+        <div
+          className={`flex items-center ${
+            collapsed ? "justify-center w-full" : "space-x-3"
+          }`}
+        >
+          {!collapsed && (
+            <Image
+              src="/logo.png"
+              alt="Wallet Icon"
+              width={36}
+              height={36}
+              className="w-9 h-9"
+              priority
+            />
+          )}
+          {!collapsed && (
+            <span className="text-lg font-bold text-black">Walleti</span>
+          )}
         </div>
+
+        <button
+          onClick={() => setCollapsed(!collapsed)}
+          className="ml-auto text-gray-500 hover:text-black transition"
+        >
+          {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+        </button>
       </div>
 
+      {/* Navigation */}
       <nav className="flex-1 space-y-1 px-2">
-        <SidebarItem href="/dashboard" icon={<HomeIcon />} title="Dashoboard" />
+        <SidebarItem
+          href="/dashboard"
+          icon={<HomeIcon />}
+          title="Dashboard"
+          collapsed={collapsed}
+        />
         <SidebarItem
           href="/transactions"
           icon={<TransactionsIcon />}
           title="Transactions"
+          collapsed={collapsed}
         />
-        <SidebarItem href="/profile" icon={<ProfileIcon />} title="Profile" />
+        <SidebarItem
+          href="/profile"
+          icon={<ProfileIcon />}
+          title="Profile"
+          collapsed={collapsed}
+        />
       </nav>
-      
-        <div className="p-4 border-t">
-          <div className="flex items-center space-x-3">
-            <Avatar className="rounded-2xl text-blue-700 capitalize">
-              <AvatarImage src={merchant?.image ?? "/avatar.png"} alt="User" />
-              <AvatarFallback className="rounded-2xl border">
-                {merchant?.name?.[0] ?? "U"}
-              </AvatarFallback>
-            </Avatar>
+
+      {/* Footer */}
+      <div className="p-4 border-t">
+        <div
+          className={`flex items-center ${
+            collapsed ? "justify-center" : "space-x-3"
+          }`}
+        >
+          <Avatar className="rounded-2xl text-blue-700 capitalize">
+            <AvatarImage src={merchant?.image ?? "/avatar.png"} alt="User" />
+            <AvatarFallback className="rounded-2xl border">
+              {merchant?.name?.[0] ?? "U"}
+            </AvatarFallback>
+          </Avatar>
+          {!collapsed && (
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm text-black capitalize truncate">
                 {merchant?.name ?? "User"}
               </p>
-              <p className="text-xs truncate">
-                {merchant?.upi ?? "upi"}
-              </p>
+              <p className="text-xs truncate">{merchant?.upi ?? "upi"}</p>
             </div>
-          </div>
-          <button
-            className="mt-2 w-full flex items-center justify-start mb-3"
-            onClick={() => signOut({ callbackUrl: "/login" })}
-          >
-            <LogOutIcon />
-            <span className="ml-2">Logout</span>
-          </button>
+          )}
         </div>
-      
+        <button
+          className={`mt-2 w-full flex items-center text-sm font-medium text-red-500 ${
+            collapsed ? "justify-center" : "justify-start space-x-2"
+          }`}
+          onClick={() => signOut({ callbackUrl: "/login" })}
+        >
+          <LogOut size={20} />
+          {!collapsed && <span>Logout</span>}
+        </button>
+      </div>
     </aside>
   );
 }
 
+// Icons
 function ProfileIcon() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
     >
       <path
         strokeLinecap="round"
@@ -82,12 +132,11 @@ function ProfileIcon() {
 function HomeIcon() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
     >
       <path
         strokeLinecap="round"
@@ -101,35 +150,16 @@ function HomeIcon() {
 function TransactionsIcon() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      />
-    </svg>
-  );
-}
-
-function LogOutIcon() {
-  return (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
       />
     </svg>
   );

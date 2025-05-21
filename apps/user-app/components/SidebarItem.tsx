@@ -1,4 +1,5 @@
 "use client";
+
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
@@ -7,6 +8,7 @@ type SidebarItemProps = {
   icon?: React.ReactNode;
   title: string;
   onClick?: () => void;
+  collapsed: boolean;
 };
 
 export const SidebarItem = ({
@@ -14,6 +16,7 @@ export const SidebarItem = ({
   title,
   icon,
   onClick,
+  collapsed,
 }: SidebarItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -29,13 +32,17 @@ export const SidebarItem = ({
 
   return (
     <div
-      className={`hover:bg-slate-50 flex rounded-xl cursor-pointer p-2 pl-2`}
       onClick={handleClick}
+      className={`flex items-center cursor-pointer p-3 rounded-xl transition-colors ${
+        collapsed ? "justify-center" : "space-x-3"
+      } ${
+        selected ? "bg-slate-100 font-semibold text-black" : "hover:bg-slate-50"
+      }`}
     >
-      <div className="pr-2">{icon}</div>
-      <div className="text-md font-medium text-slate-700 capitalize">
-        {title}
-      </div>
+      <div>{icon}</div>
+      {!collapsed && (
+        <div className="text-md text-slate-700 capitalize">{title}</div>
+      )}
     </div>
   );
 };

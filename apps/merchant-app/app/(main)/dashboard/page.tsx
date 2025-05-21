@@ -92,7 +92,7 @@ export default function Page() {
 
   return (
     <RequireAuth>
-      <div className="p-6 space-y-8">
+      <div className="w-full h-full ">
         <h1 className="text-2xl font-bold text-[#6a51a6] border-b">
           Wallet Overview
         </h1>

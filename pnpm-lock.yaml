@@ -35,9 +35,15 @@ importers:
       chart.js:
         specifier: ^4.4.9
         version: 4.4.9
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       install:
         specifier: ^0.13.0
         version: 0.13.0
+      lucide-react:
+        specifier: ^0.503.0
+        version: 0.503.0(react@19.1.0)
       next:
         specifier: ^15.3.0
         version: 15.3.2(react-dom@19.1.0)(react@19.1.0)

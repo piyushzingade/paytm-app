@@ -57,7 +57,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: "/login", // App router route
+    signIn: "/signin", // App router route
   },
   secret: process.env.NEXTAUTH_SECRET || "",
 

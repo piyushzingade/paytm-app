@@ -1,75 +1,132 @@
 "use client";
 
-import { Avatar, AvatarFallback ,  AvatarImage} from "@repo/ui/Avatar";
-
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
+import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/Avatar";
+import { SidebarItem } from "./SidebarItem"; // your sidebar items
 import Image from "next/image";
-import { SidebarItem } from "./SidebarItem";
 
+interface SidebarProps {
+  collapsed: boolean;
+  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function Sidebar() {
-    // const router = useRouter();
+export default function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
   const session = useSession();
 
   return (
-    <aside className="w-64 bg-background h-full flex flex-col justify-between">
-      {/* Logo */}
-      <div className="pl-3 pt-3 pb-6">
-        <div className="flex items-center  space-x-3">
-          <Image src="/logo.png" alt="Wallet Icon" width={42} height={42} />
-          <span className="text-2xl font-bold text-black">Walleti</span>
+    <aside
+      className={`${
+        collapsed ? "w-16" : "w-64"
+      } transition-all duration-300 flex flex-col justify-between bg-white h-screen`}
+    >
+      <div className="flex items-center justify-between px-4 py-3 mt-2">
+        <div
+          className={`flex items-center ${
+            collapsed ? "justify-center w-full" : "space-x-3"
+          }`}
+        >
+          {!collapsed && (
+            <Image
+              src="/logo.png"
+              alt="Wallet Icon"
+              width={36}
+              height={36}
+              className="w-9 h-9"
+              priority
+            />
+          )}
+          {!collapsed && (
+            <span className="text-lg font-bold text-black">Walleti</span>
+          )}
         </div>
+
+        {!collapsed && (
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="ml-auto text-gray-500 hover:text-black transition"
+          >
+            <ChevronLeft size={20} />
+          </button>
+        )}
+        {collapsed && (
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="text-gray-500 hover:text-black transition"
+          >
+            <ChevronRight size={20} />
+          </button>
+        )}
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 space-y-1 px-2">
-        <SidebarItem href="/home" icon={<HomeIcon />} title="Home" />
+        <SidebarItem
+          href="/home"
+          icon={<HomeIcon />}
+          title="Home"
+          collapsed={collapsed}
+        />
         <SidebarItem
           href="/transfer"
           icon={<TransferIcon />}
           title="Transfer"
+          collapsed={collapsed}
         />
         <SidebarItem
           href="/transaction"
           icon={<TransactionsIcon />}
           title="Transactions"
+          collapsed={collapsed}
         />
         <SidebarItem
           href="/p2pTransfer"
           icon={<P2PTransferIcon />}
           title="P2P Transfer"
+          collapsed={collapsed}
         />
-        <SidebarItem href="/profile" icon={<ProfileIcon />} title="Profile" />
+        <SidebarItem
+          href="/profile"
+          icon={<ProfileIcon />}
+          title="Profile"
+          collapsed={collapsed}
+        />
       </nav>
 
-      {/* User info & Logout */}
+      {/* Footer */}
       <div className="p-4 border-t">
-        <div className="flex items-center space-x-3">
+        <div
+          className={`flex items-center ${collapsed ? "justify-center" : "space-x-3"}`}
+        >
           <Avatar className="rounded-2xl text-blue-700 capitalize">
-            <AvatarImage 
-                
+            <AvatarImage
               src={session?.data?.user?.name ?? "/avatar.png"}
               alt="User"
             />
-            <AvatarFallback className="rounded-2xl border">{session.data?.user.name}</AvatarFallback>
+            <AvatarFallback className="rounded-2xl border">
+              {session.data?.user.name?.charAt(0)}
+            </AvatarFallback>
           </Avatar>
-          <div className="flex-1 min-w-0">
-            <p className="font-medium text-sm text-black capitalize truncate">
-              {session?.data?.user?.name ?? "User"}
-            </p>
-            <p className=" text-xs truncate">
-              {session?.data?.user?.name ?? "user@example.com"}
-            </p>
-          </div>
+          {!collapsed && (
+            <div className="flex-1 min-w-0">
+              <p className="font-medium text-sm text-black truncate capitalize">
+                {session?.data?.user?.name ?? "User"}
+              </p>
+              <p className="text-xs truncate text-muted-foreground">
+                {session?.data?.user?.name ?? "user@example.com"}
+              </p>
+            </div>
+          )}
         </div>
         <button
-          
-          className="mt-2 w-full flex items-center justify-start mb-3"
-          onClick={() => signOut({ callbackUrl: "/login" })
-          }
+          className={`mt-2 w-full flex items-center justify-start ${
+            collapsed ? "justify-center" : ""
+          }`}
+          onClick={() => signOut({ callbackUrl: "/login" })}
         >
-          <LogOutIcon />
-          <span className="ml-2">Logout</span>
+          <LogOut size={20} />
+          {!collapsed && <span className="ml-2">Logout</span>}
         </button>
       </div>
     </aside>
@@ -171,21 +228,20 @@ function ProfileIcon() {
   );
 }
 
-  function LogOutIcon() {
-    return (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
-        />
-      </svg>
-    );
-  }
-    
+function LogOutIcon() {
+  return (
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6A2.25 2.25 0 005.25 5.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9"
+      />
+    </svg>
+  );
+}

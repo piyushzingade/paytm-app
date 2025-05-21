@@ -1,5 +1,7 @@
-// components/Greeting.tsx
 "use client";
+
+import { Button } from "@repo/ui/button";
+import { Mail } from "lucide-react"; // <-- Import icon
 
 const greetings = ["Good morning", "Good afternoon", "Good evening"];
 
@@ -14,8 +16,14 @@ export default function Greeting({ username }: { username: string }) {
   const greeting = getGreeting();
 
   return (
-    <h1 className="text-3xl font-bold text-[#6a51a6] ">
-      {greeting}, <span className="capitalize">{username}</span>
-    </h1>
+    <div className="flex justify-between items-center">
+      <h1 className="text-3xl font-bold text-[#6a51a6]">
+        {greeting}, <span className="capitalize">{username}</span>
+      </h1>
+      <Button className="flex items-center gap-2 rounded-lg px-4 py-2 bg-[#6a51a6] text-white hover:bg-[#5a4391] transition">
+        <Mail size={18} />
+        Contact Us
+      </Button>
+    </div>
   );
 }
