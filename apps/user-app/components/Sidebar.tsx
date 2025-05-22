@@ -1,137 +1,173 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, LogOut } from "lucide-react";
+import { ChevronLeft, ChevronRight, LogOut, Menu, Mail } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/Avatar";
-import { SidebarItem } from "./SidebarItem"; // your sidebar items
+import { SidebarItem } from "./SidebarItem";
 import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@repo/ui/Avatar";
 
-interface SidebarProps {
-  collapsed: boolean;
-  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export default function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
+export default function Sidebar() {
   const session = useSession();
+  const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const sidebarContent = (
+    <div className="h-full">
+      <SidebarItem
+        href="/home"
+        icon={<HomeIcon />}
+        title="Home"
+        collapsed={collapsed}
+      />
+      <SidebarItem
+        href="/transfer"
+        icon={<TransferIcon />}
+        title="Transfer"
+        collapsed={collapsed}
+      />
+      <SidebarItem
+        href="/transaction"
+        icon={<TransactionsIcon />}
+        title="Transactions"
+        collapsed={collapsed}
+      />
+      <SidebarItem
+        href="/p2pTransfer"
+        icon={<P2PTransferIcon />}
+        title="P2P Transfer"
+        collapsed={collapsed}
+      />
+      <SidebarItem
+        href="/profile"
+        icon={<ProfileIcon />}
+        title="Profile"
+        collapsed={collapsed}
+      />
+    </div>
+  );
+
+  const footer = (
+    <div className="p-4 border-t">
+      <div
+        className={`flex items-center ${
+          collapsed ? "justify-center" : "space-x-3"
+        }`}
+      >
+        <Avatar className="rounded-2xl text-blue-700 capitalize">
+          <AvatarImage
+            src={session?.data?.user?.image ?? "/avatar.png"}
+            alt="User"
+          />
+          <AvatarFallback className="rounded-2xl border">
+            {session?.data?.user?.name?.charAt(0) ?? "U"}
+          </AvatarFallback>
+        </Avatar>
+        {!collapsed && (
+          <div className="flex-1 min-w-0">
+            <p className="font-medium text-sm text-black truncate capitalize">
+              {session?.data?.user?.name ?? "User"}
+            </p>
+            <p className="text-xs truncate text-muted-foreground">
+              {session?.data?.user?.email ?? "user@example.com"}
+            </p>
+          </div>
+        )}
+      </div>
+      <button
+        className={`mt-2 w-full flex items-center justify-start ${
+          collapsed ? "justify-center" : ""
+        }`}
+        onClick={() => signOut({ callbackUrl: "/signin" })}
+      >
+        <LogOut size={20} />
+        {!collapsed && <span className="ml-2">Logout</span>}
+      </button>
+    </div>
+  );
 
   return (
-    <aside
-      className={`${
-        collapsed ? "w-16" : "w-64"
-      } transition-all duration-300 flex flex-col justify-between bg-white h-screen`}
-    >
-      <div className="flex items-center justify-between px-4 py-3 mt-2">
-        <div
-          className={`flex items-center ${
-            collapsed ? "justify-center w-full" : "space-x-3"
-          }`}
-        >
-          {!collapsed && (
-            <Image
-              src="/logo.png"
-              alt="Wallet Icon"
-              width={36}
-              height={36}
-              className="w-9 h-9"
-              priority
-            />
-          )}
-          {!collapsed && (
-            <span className="text-lg font-bold text-black">Walleti</span>
-          )}
-        </div>
-
-        {!collapsed && (
+    <>
+      {/* Mobile Menu Button - only shows when sidebar is closed */}
+      {!mobileOpen && (
+        <div className="sm:hidden fixed top-4 left-4 z-50">
           <button
-            onClick={() => setCollapsed(!collapsed)}
-            className="ml-auto text-gray-500 hover:text-black transition"
+            className="p-2 bg-white rounded-md shadow"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
           >
-            <ChevronLeft size={20} />
+            <Menu size={24} />
           </button>
-        )}
-        {collapsed && (
+        </div>
+      )}
+
+      {/* Desktop Sidebar */}
+      <aside
+        className={`hidden sm:flex flex-col justify-between h-screen bg-white transition-all duration-300 ${
+          collapsed ? "w-16" : "w-64"
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 py-3 mt-2">
+          <div
+            className={`flex items-center ${
+              collapsed ? "justify-center w-full" : "space-x-3"
+            }`}
+          >
+            {!collapsed && (
+              <>
+                <Image src="/logo.png" alt="Logo" width={36} height={36} />
+                <span className="text-lg font-bold text-black">Walleti</span>
+              </>
+            )}
+          </div>
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="text-gray-500 hover:text-black transition"
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            <ChevronRight size={20} />
+            {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
           </button>
-        )}
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 space-y-1 px-2">
-        <SidebarItem
-          href="/home"
-          icon={<HomeIcon />}
-          title="Home"
-          collapsed={collapsed}
-        />
-        <SidebarItem
-          href="/transfer"
-          icon={<TransferIcon />}
-          title="Transfer"
-          collapsed={collapsed}
-        />
-        <SidebarItem
-          href="/transaction"
-          icon={<TransactionsIcon />}
-          title="Transactions"
-          collapsed={collapsed}
-        />
-        <SidebarItem
-          href="/p2pTransfer"
-          icon={<P2PTransferIcon />}
-          title="P2P Transfer"
-          collapsed={collapsed}
-        />
-        <SidebarItem
-          href="/profile"
-          icon={<ProfileIcon />}
-          title="Profile"
-          collapsed={collapsed}
-        />
-      </nav>
-
-      {/* Footer */}
-      <div className="p-4 border-t">
-        <div
-          className={`flex items-center ${collapsed ? "justify-center" : "space-x-3"}`}
-        >
-          <Avatar className="rounded-2xl text-blue-700 capitalize">
-            <AvatarImage
-              src={session?.data?.user?.name ?? "/avatar.png"}
-              alt="User"
-            />
-            <AvatarFallback className="rounded-2xl border">
-              {session.data?.user.name?.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
-          {!collapsed && (
-            <div className="flex-1 min-w-0">
-              <p className="font-medium text-sm text-black truncate capitalize">
-                {session?.data?.user?.name ?? "User"}
-              </p>
-              <p className="text-xs truncate text-muted-foreground">
-                {session?.data?.user?.name ?? "user@example.com"}
-              </p>
-            </div>
-          )}
         </div>
-        <button
-          className={`mt-2 w-full flex items-center justify-start ${
-            collapsed ? "justify-center" : ""
-          }`}
-          onClick={() => signOut({ callbackUrl: "/login" })}
-        >
-          <LogOut size={20} />
-          {!collapsed && <span className="ml-2">Logout</span>}
-        </button>
-      </div>
-    </aside>
+        <nav className="flex-1 space-y-1 px-2">{sidebarContent}</nav>
+        {footer}
+      </aside>
+
+      {/* Mobile Sidebar */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 flex sm:hidden">
+          <div className="w-64 bg-white shadow-lg h-full flex flex-col justify-between">
+            <div className="flex items-center justify-between px-4 py-3">
+              <div className="flex items-center space-x-3">
+                <Image
+                  src="/logo.png"
+                  alt="Wallet Icon"
+                  width={36}
+                  height={36}
+                />
+                <span className="text-lg font-bold text-black">Walleti</span>
+              </div>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="text-gray-500 hover:text-black"
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
+            </div>
+            <nav className="flex-1 space-y-1 px-2">{sidebarContent}</nav>
+            {footer}
+          </div>
+          {/* Overlay */}
+          <div
+            className="flex-1 bg-black bg-opacity-40"
+            onClick={() => setMobileOpen(false)}
+          />
+        </div>
+      )}
+    </>
   );
 }
+
 
 function HomeIcon() {
   return (

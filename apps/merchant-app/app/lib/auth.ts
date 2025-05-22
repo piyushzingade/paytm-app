@@ -1,5 +1,4 @@
 import GoogleProvider from "next-auth/providers/google";
-import GithubProvider from "next-auth/providers/github";
 import type { AuthOptions } from "next-auth";
 import prisma from "@repo/db/client";
 
@@ -18,6 +17,17 @@ export const auth: AuthOptions = {
   jwt: {
     maxAge: 30 * 24 * 60 * 60,
   },
+  // cookies: {
+  //   sessionToken: {
+  //     name: `__Secure-next-auth.session-token`,
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "lax",
+  //       path: "/",
+  //       secure: process.env.NODE_ENV === "production", // only secure in production
+  //     },
+  //   },
+  // },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {

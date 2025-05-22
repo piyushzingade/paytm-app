@@ -15,8 +15,17 @@ export function SendCard() {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const isPhoneValid = number.length === 10 && /^\d+$/.test(number);
+  const isAmountValid = !!amount && Number(amount) > 0;
 
   const handleSend = async () => {
+    if (!isPhoneValid) {
+      setPhoneError("❌ Invalid phone number");
+      return;
+    }
+    setPhoneError("");
     setStatus("loading");
     setErrorMessage("");
 
@@ -60,19 +69,33 @@ export function SendCard() {
             placeholder="Phone number / UPI ID"
             label="Phone number / UPI ID"
             value={number}
-            onChange={setNumber}
+            onChange={(val) => {
+              setNumber(val);
+              if (val.length !== 10 || !/^\d+$/.test(val)) {
+                setPhoneError("❌ Invalid phone number");
+              } else {
+                setPhoneError("");
+              }
+            }}
           />
+          {phoneError && (
+            <div className="text-sm text-red-500 -mt-2">{phoneError}</div>
+          )}
+
           <TextInput
             placeholder="Amount in INR"
             label="Amount in INR"
             value={amount}
             onChange={setAmount}
           />
+
           <div className="pt-4 flex justify-center">
             <Button
-              className="border border-slate-500 text-slate-700 bg-transparent p-2 px-10 rounded-xl hover:text-white hover:bg-[#6a51a6]"
+              className={`border border-slate-500 text-slate-700 bg-transparent p-2 px-10 rounded-xl 
+                hover:text-white hover:bg-[#6a51a6] 
+                ${status === "loading" || !isPhoneValid || !isAmountValid ? "opacity-50 cursor-not-allowed" : ""}`}
               onClick={handleSend}
-              disabled={status === "loading"}
+              disabled={status === "loading" || !isPhoneValid || !isAmountValid}
             >
               {status === "loading" ? "Processing..." : "Send"}
             </Button>

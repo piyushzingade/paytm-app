@@ -19,10 +19,9 @@ export default async function HeroSection() {
   }
 
   return (
-    <div className="w-full h-full ">
+    <div className="w-full  sm:pt-4 space-y-4">
       <Greeting username={username} />
-      
-        <WalletOverview  />
+      <WalletOverview  />
     </div>
   );
 }

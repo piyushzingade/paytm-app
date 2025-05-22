@@ -28,30 +28,35 @@ export default function TransactionsChart({
 
   return (
     <div className="p-4">
-      {transactions.length === 0 ? (
-        <p className="text-center text-gray-500">No transactions found.</p>
-      ) : (
-        <ul className="space-y-4">
-          {transactions.map((tx) => (
-            <li
-              key={tx.id}
-              className="flex items-center justify-between border-b pb-5 last:border-none"
-            >
-              <div className="flex items-center space-x-4 gap-4">
-                <span className="text-2xl">📊</span>
-                <div>
-                  <p className="text-lg font-medium text-gray-800">
-                    ₹{tx.amount} from UserId {tx.fromUserId}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    {new Date(tx.date).toLocaleString()}
-                  </p>
+      <h2 className="text-3xl font-bold text-[#6a51a6] p-3">
+        Recent Transactions
+      </h2>
+      <div className="p-2">
+        {transactions.length === 0 ? (
+          <p className="text-center text-gray-500">No transactions found.</p>
+        ) : (
+          <ul className="space-y-4">
+            {transactions.map((tx) => (
+              <li
+                key={tx.id}
+                className="flex items-center justify-between border-b pb-5 last:border-none"
+              >
+                <div className="flex items-center space-x-4 gap-4">
+                  <span className="text-2xl">📊</span>
+                  <div>
+                    <p className="text-lg font-medium text-gray-800">
+                      ₹{tx.amount} from UserId {tx.fromUserId}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {new Date(tx.date).toLocaleString()}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
