@@ -1,0 +1,14 @@
+{
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/balance/route": "app/api/balance/route.js",
+  "/api/updateUserProfile/route": "app/api/updateUserProfile/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/signin/page": "app/signin/page.js",
+  "/(dashoboard)/profile/page": "app/(dashoboard)/profile/page.js",
+  "/(dashoboard)/p2pTransfer/page": "app/(dashoboard)/p2pTransfer/page.js",
+  "/(dashoboard)/transfer/page": "app/(dashoboard)/transfer/page.js",
+  "/(dashoboard)/home/page": "app/(dashoboard)/home/page.js",
+  "/(dashoboard)/transaction/page": "app/(dashoboard)/transaction/page.js"
+}
