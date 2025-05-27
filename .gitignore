@@ -4,12 +4,11 @@
 node_modules
 .pnp
 .pnp.js
-
+.next
 # testing
 coverage
 
 # next.js
-.next/
 out/
 build
 .swc/
