@@ -1,7 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import prisma from "@repo/db/client"; // Adjust path if needed
+import prisma from "@repo/db/client"; // Adjust this path if needed
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -25,17 +25,20 @@ export const authOptions: NextAuthOptions = {
             credentials.password,
             user.password
           );
+
           if (isValid) {
             return {
               id: user.id.toString(),
-              name: user.name ?? "User",
+              name: user.name || "User",
               phone: user.number,
             };
           }
           return null;
         }
 
+        // Auto-register new user if not found
         const hashedPassword = await bcrypt.hash(credentials.password, 10);
+
         try {
           const newUser = await prisma.user.create({
             data: {
@@ -46,7 +49,7 @@ export const authOptions: NextAuthOptions = {
 
           return {
             id: newUser.id.toString(),
-            name: newUser.name ?? "User",
+            name: newUser.name || "User",
             phone: newUser.number,
           };
         } catch (error) {
@@ -56,36 +59,39 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+
   pages: {
-    signIn: "/signup", // App router route
+    signIn: "/signup",
   },
+
   secret: process.env.NEXTAUTH_SECRET || "",
 
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
-
   },
 
-  jwt:{
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+  jwt: {
+    maxAge: 30 * 24 * 60 * 60,
   },
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
         token.name = user.name;
+        token.phone = (user as any).phone; // Add phone to token
       }
       return token;
     },
+
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.name = token.name as string;
-        (session.user as any).phone = token.phone;
+        (session.user as any).phone = token.phone; // Attach phone to session
       }
       return session;
     },
-    
   },
 };
