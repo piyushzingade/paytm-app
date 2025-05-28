@@ -1,8 +1,6 @@
 {
-    "projects": {
-      "user-app": {
-        "rootDirectory": "apps/user-app"
-      }
-    }
-  }
-      
+    "buildCommand": "pnpm turbo run build --filter=user-app",
+    "installCommand": "pnpm install",
+    "outputDirectory": "apps/user-app/.next"
+}
+  
