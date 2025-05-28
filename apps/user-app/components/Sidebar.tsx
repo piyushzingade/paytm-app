@@ -78,7 +78,7 @@ export default function Sidebar() {
         className={`mt-2 w-full flex items-center justify-start ${
           collapsed ? "justify-center" : ""
         }`}
-        onClick={() => signOut({ callbackUrl: "/signin" })}
+        onClick={() => signOut({ callbackUrl: "/signup" })}
       >
         <LogOut size={20} />
         {!collapsed && <span className="ml-2">Logout</span>}
