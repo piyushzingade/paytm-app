@@ -58,12 +58,12 @@ export default function Page() {
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
         </div>
 
-        <Button
+        <button
           type="submit"
           className="mt-6 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl shadow-md transition duration-200"
         >
           🚀 Signin
-        </Button>
+        </button>
 
         
       </form>
