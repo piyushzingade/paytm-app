@@ -1,5 +1,5 @@
 {
-    "buildCommand": "pnpm turbo run build --filter=user-app",
+    "buildCommand": "pnpm turbo run build --filter=web",
     "installCommand": "pnpm install",
     "outputDirectory": "apps/user-app/.next"
 }
